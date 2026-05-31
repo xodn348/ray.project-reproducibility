@@ -4,7 +4,7 @@
 # Run from any directory; resolves to repo root via this script's path.
 #
 # Steps:
-#   1. regenerate all eight in-body figures, with Phase 2 wrappers for Fig 2--4
+#   1. regenerate all active in-body figures, with Phase 2 wrappers for Fig 2--4
 #   2. Mirror paper/figures into root figures/ for Overleaf folder uploads
 #   3. pdflatex x2           — rebuild paper/paper.pdf (twice for cross-refs)
 #   4. summary               — page count, figure count, warning count
@@ -27,8 +27,7 @@ for f in \
     fig03_phase2.py \
     fig04_phase2.py \
     fig05_address_level.py \
-    fig06_address_one_year.py \
-    fig07_address_rank_profiles.py
+    fig06_address_one_year.py
 do
     echo "[regen]   running scripts/figures/$f"
     python "scripts/figures/$f" || {
@@ -47,8 +46,7 @@ for ext in pdf png; do
         fig05_script_family_mix \
         fig06_script_value_per_utxo \
         fig05_address_count_rank \
-        fig06_address_one_year \
-        fig07_address_rank_profiles
+        fig06_address_one_year
     do
         src="$ROOT/paper/figures/${stem}.${ext}"
         [ -e "$src" ] || { echo "[regen] ERROR: missing $src"; exit 1; }

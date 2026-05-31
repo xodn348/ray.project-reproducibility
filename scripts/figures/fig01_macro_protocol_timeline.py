@@ -113,8 +113,8 @@ def main() -> None:
         "xtick.labelsize": 14,
         "ytick.labelsize": 14,
     })
-    fig = plt.figure(figsize=(15.6, 8.35))
-    gs = GridSpec(3, 1, height_ratios=[0.30, 1.0, 1.0], hspace=0.46)
+    fig = plt.figure(figsize=(11.2, 4.55))
+    gs = GridSpec(3, 1, height_ratios=[0.24, 1.0, 1.0], hspace=0.34)
     ax0 = fig.add_subplot(gs[0])
     ax1 = fig.add_subplot(gs[1], sharex=ax0)
     ax2 = fig.add_subplot(gs[2], sharex=ax0)

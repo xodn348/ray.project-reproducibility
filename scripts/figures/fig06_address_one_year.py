@@ -22,10 +22,27 @@ def read_csv(name: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
+def label_bars(ax, bars, fmt="{:.1f}%", dy=1.2, fontsize=10, color="#111827", min_value=0.0):
+    for bar in bars:
+        h = bar.get_height()
+        if h < min_value:
+            continue
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            h + dy,
+            fmt.format(h),
+            ha="center",
+            va="bottom",
+            fontsize=fontsize,
+            color=color,
+        )
+
+
 def main() -> int:
     coverage = json.loads((DATA_DIR / "coverage_summary.json").read_text())
     address_total = float(coverage["address_axis"]["address_count"])
     balance_total = float(coverage["balance_axis"]["address_attributable_btc"])
+    utxo_total = float(coverage["balance_axis"]["utxo_rows"])
 
     dormancy = read_csv("dormancy_balance.csv")
     dormancy["address_count"] = pd.to_numeric(dormancy["address_count"])
@@ -34,12 +51,12 @@ def main() -> int:
     recency = pd.DataFrame(
         [
             {
-                "class": "<1y current-output\naddress",
+                "class": "Newest UTXO\n<1 year",
                 "addresses": dormancy.loc[recent_mask, "address_count"].sum(),
                 "btc": dormancy.loc[recent_mask, "balance_btc"].sum(),
             },
             {
-                "class": ">=1y current-output\naddress",
+                "class": "Newest UTXO\n≥1 year",
                 "addresses": dormancy.loc[~recent_mask, "address_count"].sum(),
                 "btc": dormancy.loc[~recent_mask, "balance_btc"].sum(),
             },
@@ -56,30 +73,20 @@ def main() -> int:
 
     top_balance = read_csv("top_balance.csv")
     top_utxo = read_csv("top_utxo_count.csv")
-    top_balance["current_balance_btc"] = pd.to_numeric(top_balance["current_balance_btc"])
-    top_utxo["current_balance_btc"] = pd.to_numeric(top_utxo["current_balance_btc"])
-    top_utxo["n_unspent_utxos"] = pd.to_numeric(top_utxo["n_unspent_utxos"])
+    for df in (top_balance, top_utxo):
+        df["current_balance_btc"] = pd.to_numeric(df["current_balance_btc"])
+        df["n_unspent_utxos"] = pd.to_numeric(df["n_unspent_utxos"])
     concentration = pd.DataFrame(
         [
             {
-                "label": "Top 10\nbalance",
-                "btc_share": top_balance.head(10)["current_balance_btc"].sum() / balance_total,
-                "utxo_share": None,
-            },
-            {
-                "label": "Top 100\nbalance",
+                "label": "Top 100\nby BTC balance",
                 "btc_share": top_balance.head(100)["current_balance_btc"].sum() / balance_total,
-                "utxo_share": None,
+                "utxo_share": top_balance.head(100)["n_unspent_utxos"].sum() / utxo_total,
             },
             {
-                "label": "Top 10\nUTXO-count",
-                "btc_share": top_utxo.head(10)["current_balance_btc"].sum() / balance_total,
-                "utxo_share": top_utxo.head(10)["n_unspent_utxos"].sum() / float(coverage["balance_axis"]["utxo_rows"]),
-            },
-            {
-                "label": "Top 100\nUTXO-count",
+                "label": "Top 100\nby UTXO count",
                 "btc_share": top_utxo.head(100)["current_balance_btc"].sum() / balance_total,
-                "utxo_share": top_utxo.head(100)["n_unspent_utxos"].sum() / float(coverage["balance_axis"]["utxo_rows"]),
+                "utxo_share": top_utxo.head(100)["n_unspent_utxos"].sum() / utxo_total,
             },
         ]
     )
@@ -89,81 +96,59 @@ def main() -> int:
             "font.family": "DejaVu Sans",
             "axes.spines.top": False,
             "axes.spines.right": False,
-            "axes.titlesize": 12,
-            "axes.labelsize": 10,
-            "xtick.labelsize": 9,
-            "ytick.labelsize": 9,
+            "axes.titlesize": 15,
+            "axes.labelsize": 12,
+            "xtick.labelsize": 11,
+            "ytick.labelsize": 11,
         }
     )
-    fig, axs = plt.subplots(1, 3, figsize=(14.2, 4.3))
+    fig, axs = plt.subplots(1, 3, figsize=(15.7, 5.35))
 
     ax = axs[0]
-    x = range(len(recency))
-    width = 0.35
-    ax.bar([i - width / 2 for i in x], recency["address_share"] * 100, width, label="Address share", color="#2563eb")
-    ax.bar([i + width / 2 for i in x], recency["btc_share"] * 100, width, label="BTC share", color="#c2410c")
-    ax.set_xticks(list(x), recency["class"].astype(str))
-    for i, row in recency.iterrows():
-        ax.text(
-            i - width / 2,
-            row["address_share"] * 100 + 2.0,
-            f"{row['address_share'] * 100:.1f}%",
-            ha="center",
-            va="bottom",
-            fontsize=9,
-            color="#1e3a8a",
-        )
-        ax.text(
-            i + width / 2,
-            row["btc_share"] * 100 + 2.0,
-            f"{row['btc_share'] * 100:.1f}%",
-            ha="center",
-            va="bottom",
-            fontsize=9,
-            color="#7c2d12",
-        )
+    x = list(range(len(recency)))
+    width = 0.36
+    b1 = ax.bar([i - width / 2 for i in x], recency["address_share"] * 100, width, label="Address share", color="#2563eb")
+    b2 = ax.bar([i + width / 2 for i in x], recency["btc_share"] * 100, width, label="BTC share", color="#c2410c")
+    ax.set_xticks(x, recency["class"].astype(str))
+    label_bars(ax, b1, fontsize=10, color="#1e3a8a")
+    label_bars(ax, b2, fontsize=10, color="#7c2d12")
     ax.set_ylim(0, 92)
-    ax.set_title("A. 20.7% of addresses hold 82.2% of BTC", pad=28)
+    ax.set_title("A. Address recency and BTC share", pad=14)
     ax.set_ylabel("Share of address-attributable set (%)")
-    ax.legend(
-        frameon=True,
-        facecolor="white",
-        edgecolor="#cbd5e1",
-        fontsize=8,
-        loc="lower center",
-        bbox_to_anchor=(0.5, 1.03),
-        ncol=2,
-    )
+    ax.legend(frameon=False, fontsize=10, loc="upper center", ncol=2)
     ax.grid(True, axis="y", linestyle=":", alpha=0.45)
 
     ax = axs[1]
-    x = range(len(freq))
-    ax.plot(list(x), freq["address_share"] * 100, marker="o", label="Address share", color="#7c3aed")
-    ax.plot(list(x), freq["btc_share"] * 100, marker="s", label="BTC share", color="#0f766e")
-    ax.set_xticks(list(x), freq["n_unspent_utxos_bucket"].astype(str), rotation=0)
-    ax.set_title("B. Address count and BTC share diverge")
+    x = list(range(len(freq)))
+    width = 0.38
+    b1 = ax.bar([i - width / 2 for i in x], freq["address_share"] * 100, width, label="Address share", color="#7c3aed")
+    b2 = ax.bar([i + width / 2 for i in x], freq["btc_share"] * 100, width, label="BTC share", color="#0f766e")
+    ax.set_xticks(x, freq["n_unspent_utxos_bucket"].astype(str), rotation=22, ha="right")
+    ax.set_title("B. Current UTXOs per address", pad=14)
     ax.set_xlabel("Current UTXOs at address")
     ax.set_ylabel("Share (%)")
-    ax.legend(frameon=False, fontsize=8)
+    ax.legend(frameon=False, fontsize=10)
     ax.grid(True, axis="y", linestyle=":", alpha=0.45)
 
     ax = axs[2]
-    x = range(len(concentration))
-    ax.bar(list(x), concentration["btc_share"] * 100, color="#dc2626", label="BTC share")
-    for i, v in enumerate(concentration["utxo_share"]):
-        if pd.notna(v):
-            ax.scatter(i, v * 100, color="#111827", s=42, label="UTXO share" if i == 2 else None, zorder=3)
-    ax.set_xticks(list(x), concentration["label"].astype(str))
-    ax.set_title("C. Value tail differs from output-count tail")
+    x = list(range(len(concentration)))
+    width = 0.36
+    b1 = ax.bar([i - width / 2 for i in x], concentration["btc_share"] * 100, width, label="BTC share", color="#dc2626")
+    b2 = ax.bar([i + width / 2 for i in x], concentration["utxo_share"] * 100, width, label="UTXO-count share", color="#111827")
+    ax.set_xticks(x, concentration["label"].astype(str))
+    label_bars(ax, b1, fontsize=10, color="#7f1d1d", min_value=0.5)
+    label_bars(ax, b2, fontsize=10, color="#111827", min_value=0.5)
+    ax.set_ylim(0, max((concentration["btc_share"] * 100).max(), (concentration["utxo_share"] * 100).max()) + 4.5)
+    ax.set_title("C. Top-100 balance and UTXO-count shares", pad=14)
     ax.set_ylabel("Share (%)")
-    ax.legend(frameon=False, fontsize=8)
+    ax.legend(frameon=False, fontsize=10)
     ax.grid(True, axis="y", linestyle=":", alpha=0.45)
 
-    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    fig.tight_layout(w_pad=2.0)
 
     for ext in ("png", "pdf"):
         out = OUT_DIR / f"fig06_address_one_year.{ext}"
-        fig.savefig(out, dpi=150 if ext == "png" else None, bbox_inches="tight")
+        fig.savefig(out, dpi=170 if ext == "png" else None, bbox_inches="tight")
         print(f"wrote {out}")
     plt.close(fig)
     return 0

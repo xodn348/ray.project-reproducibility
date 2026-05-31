@@ -1,5 +1,3 @@
-% v2.4 IEEE conference manuscript per DECISIONS.md D-0006--D-0009.
-% Submission build: nine in-body figures and expanded one-year address-level analysis.
 \documentclass[conference]{IEEEtran}
 
 \usepackage{amssymb}
@@ -57,7 +55,7 @@ maps 18.31 million BTC, or 91.4\% of the snapshot balance, to 56.21
 million canonical addresses; address balances are highly concentrated
 (Gini 0.988), and UTXO frequency reveals a split between ordinary
 single-output addresses and service-like consolidation addresses. In the one-year address analysis, 20.7\% of addresses had at least one current UTXO created within the past year, and those addresses held 82.2\% of address-attributable BTC. The
-verdict is scoped but direct: the base layer evidence is more consistent
+verdict is direct: the base layer evidence is more consistent
 with savings, custody, and settlement infrastructure than with a daily
 payment rail.
 \end{abstract}
@@ -99,10 +97,9 @@ one-year block evidence shows settlement activity: most transaction
 output sums are small, but the largest transfers remain very large. The
 address analysis shows the same pattern at the address level, with BTC
 balances and UTXO counts concentrated even without wallet or entity
-clustering. The claim is therefore scoped but direct: the measured stock,
+clustering. The claim is direct: the measured stock,
 flow, sink, and one-year address evidence support the store-of-value
-interpretation; a longer archival run would extend the flow and address
-analysis to the full 2021--2026 window.
+interpretation.
 
 The contribution is not a new deanonymization method. Prior work already
 showed that address graphs, multi-input heuristics, and clustering can
@@ -155,14 +152,19 @@ in one environment and a settlement layer in another. From 2021 to 2026,
 \btc{} moved through a rate cycle, a trust shock after FTX, regulated ETF
 access, the fourth halving, and a new wave of custody tooling around
 Taproot. Figure~\ref{fig:macro-timeline} puts those events on one time
-axis so the chain evidence is read against the same historical clock.
+axis so the chain evidence is read against the same historical clock. In
+Figure~\ref{fig:macro-timeline}, the shaded bands mark broad market
+regimes, the upper row marks macro/regulatory/custody shocks, and the lower
+row marks protocol and blockspace events.
 
-\begin{figure}[!tbp]
+\begin{figure*}[!tbp]
   \centering
-  \includegraphics[width=0.95\linewidth]{figures/fig01_macro_protocol_timeline.pdf}
-  \caption{Macroeconomic and protocol timeline, 2021--2026.}
+  \includegraphics[width=0.94\textwidth]{figures/fig01_macro_protocol_timeline.pdf}
+  \caption{Macroeconomic and protocol timeline, 2021--2026. Shaded bands
+  mark market regimes; upper markers show macro, regulatory, and custody
+  events; lower markers show protocol and blockspace events.}
   \label{fig:macro-timeline}
-\end{figure}
+\end{figure*}
 
 The economic story is a gradual change in who had reason to hold coins on
 the base chain. The sample begins near the 2021 retail risk peak, when
@@ -202,7 +204,7 @@ made institutional signing less visible and easier to coordinate. The
 chain evidence below asks whether the actual UTXO set, one-year blocks,
 and address-level distributions are consistent with that shift.
 
-\section{Data and Evidence Boundary}\label{sec:data}
+\section{Data}\label{sec:data}
 
 The measurements use Bitcoin Core chainstate and block data. The stock
 and sink sections use the chainstate snapshot at height 950{,}696. The
@@ -336,28 +338,33 @@ about 0.0019~BTC in May 2025 to about 0.00042~BTC in May 2026, and the
 p90 falls from about 0.27~BTC to about 0.042~BTC. Yet the p99 remains in
 multi-BTC territory, with the whole window's p99 about 18.84~BTC.
 Table~\ref{tab:flow-summary} gives the one-year window values used to
-read Figure~\ref{fig:flow-lens}.
+interpret Figure~\ref{fig:flow-lens}. In Table~\ref{tab:flow-summary},
+the rows are time slices: the first row is the full one-year window, the
+2025 and 2026 rows split that window by calendar year, and the May rows
+compare the start and end months. The columns report non-coinbase
+transaction count and output-sum quantiles: median is the typical
+transaction, while p90 and p99 show the upper tail.
 
 \begin{table}[!tbp]
   \centering
   \scriptsize
-  \setlength{\tabcolsep}{3pt}
-  \renewcommand{\arraystretch}{1.10}
-  \resizebox{\linewidth}{!}{%
+  \setlength{\tabcolsep}{2.5pt}
+  \renewcommand{\arraystretch}{1.00}
   \begin{tabular}{@{}lrrrr@{}}
     \toprule
-    \textbf{Slice} & \textbf{Blocks} & \textbf{Median} & \textbf{p90} & \textbf{p99} \\
+    \textbf{Slice} & \textbf{Tx M} & \textbf{Med. BTC} & \textbf{p90 BTC} & \textbf{p99 BTC} \\
     \midrule
-    All one-year & 55{,}891 & 0.001059 & 0.149624 & 18.8365 \\
-    2025 window & -- & 0.001334 & 0.188365 & 18.8365 \\
-    2026 window & -- & 0.000750 & 0.094406 & 16.7880 \\
-    May 2025 & -- & 0.001884 & 0.266073 & 18.8365 \\
-    May 2026 & -- & 0.000422 & 0.042170 & 9.4406 \\
+    All one-year & 177.0 & 0.00106 & 0.150 & 18.84 \\
+    2025 window & 106.0 & 0.00133 & 0.188 & 18.84 \\
+    2026 window & 71.0 & 0.000750 & 0.0944 & 16.79 \\
+    May 2025 & 11.8 & 0.00188 & 0.266 & 18.84 \\
+    May 2026 & 14.3 & 0.000422 & 0.0422 & 9.44 \\
     \bottomrule
   \end{tabular}
-  }
-  \vspace{0.55em}
-  \caption{One-year-window non-coinbase transaction output-sum quantiles in BTC.}
+  \vspace{1em}
+  \caption{One-year-window non-coinbase transaction counts and output-sum
+  quantiles. Tx M is millions of transactions; median, p90, and p99 are BTC
+  output-sum quantiles before change-output correction.}
   \label{tab:flow-summary}
 \end{table}
 
@@ -368,9 +375,7 @@ small daily purchases. The blind spot is measurement granularity. A large
 output sum can be a real settlement transfer, a batch payout, a wallet
 sweep, or a vault rotation. Some Ordinals and BRC-20 activity also
 consumes blockspace without being a payment \cite{rodarmor2023ordinals}.
-Full change adjustment and inscription filters belong to the archival
-run; this one-year window figure is deliberately stated in BTC output-sum
-units.
+This one-year window figure is therefore stated in BTC output-sum units.
 
 \begin{figure}[!tbp]
   \centering
@@ -427,15 +432,14 @@ shape of the current address layer.
 
 \subsection{Coverage and script types}
 
-Read this subsection with Figures~\ref{fig:script-family-mix}
-and~\ref{fig:script-value-per-utxo}: Figure~\ref{fig:script-family-mix}
-compares UTXO-count share with BTC-balance share by script family, and
-Figure~\ref{fig:script-value-per-utxo} reports BTC per current UTXO for
-the same families.
+In Figure~\ref{fig:script-family-mix}, UTXO-count share and
+BTC-balance share are compared by script family. In
+Figure~\ref{fig:script-value-per-utxo}, the same script families are
+shown by average BTC per current UTXO.
 
 The parser assigns canonical addresses to 18.31 million BTC, or 91.4\% of
 the snapshot balance, across 56.21 million addresses. The remaining
-1.72 million BTC is excluded from address-balance totals because those
+1.72 million BTC does not enter address-balance totals because those
 outputs do not receive a canonical address string in this parse. The address
 results therefore describe the address-attributable part of the live UTXO
 set, which is most of the BTC stock.
@@ -507,10 +511,10 @@ the transaction surface from the location of stored BTC.
 
 \subsection{Address recency}
 
-Read this subsection with Figure~\ref{fig:address-one-year} and the
-recency rows of Table~\ref{tab:address-numeric}: they compare address
-share with BTC share for addresses whose newest current UTXO is less than
-one year old versus at least one year old.
+In Figure~\ref{fig:address-one-year}, address share and BTC share are
+compared for addresses whose newest current UTXO is less than one year old
+versus at least one year old. In Table~\ref{tab:address-numeric}, the
+recency rows give the exact address counts, BTC totals, and percentages.
 
 Address recency is based on the newest current UTXO at each address. If an
 address contains one five-year-old UTXO and one recent UTXO, the address is
@@ -547,23 +551,23 @@ concentrated than the address share.
 
 \subsection{UTXO frequency and balance concentration}
 
-Read this subsection with Table~\ref{tab:address-numeric} and
-Figures~\ref{fig:address-count-rank}--\ref{fig:address-rank-profiles}:
-the table gives the UTXO-count buckets, and the figures separate balance
-rank from output-count rank.
+In Table~\ref{tab:address-numeric}, the UTXO-count block gives the
+address and BTC shares for each count bucket. In
+Figure~\ref{fig:address-count-rank}, the left panel sorts addresses by
+current UTXO count and the right panel sorts addresses by current BTC
+balance. In Figure~\ref{fig:address-one-year}, panel B plots the same
+UTXO-count buckets and panel C compares the two top-100 tails.
 
 UTXO frequency asks how many current outputs sit at each address. A retail
 payment layer would be expected to spread value broadly across many small
-balances. The observed pattern is more structured. Single-UTXO addresses
-are 85.3\% of addresses but hold only 26.6\% of address-attributable BTC.
-Addresses with more than ten current UTXOs are only about 2.3\% of
-addresses but hold 31.2\% of address-attributable BTC. Addresses with more
-than one hundred UTXOs are only 0.23\% of addresses but hold 1.70 million
-BTC. The UTXO-count block in Table~\ref{tab:address-numeric} is a separate
-partition from the recency block; its rows also add to 100\% within that
-block. Figure~\ref{fig:address-count-rank} separates the same issue into
-address count and balance rank: many addresses have one current output, but
-the largest balance addresses sit far above ordinary balances.
+balances. In the current data, addresses with one UTXO are 85.3\% of
+addresses but hold 26.6\% of address-attributable BTC. Addresses with more
+than ten current UTXOs are about 2.3\% of addresses but hold 31.2\% of
+address-attributable BTC. Addresses with more than one hundred UTXOs are
+0.23\% of addresses and hold 1.70 million BTC. The UTXO-count block in
+Table~\ref{tab:address-numeric} is a separate partition from the recency
+block; its rows also add to 100\% within that block. Figure~\ref{fig:address-count-rank}
+separates the same issue into address count and balance rank.
 
 \begin{table*}[!tbp]
   \centering
@@ -592,33 +596,22 @@ the largest balance addresses sit far above ordinary balances.
   \label{tab:address-numeric}
 \end{table*}
 
-The top-100 checks show that balance concentration and output-count
-concentration are different tails. The top 100 addresses by current BTC
-balance hold 3.04 million BTC, or 16.6\% of address-attributable BTC. The
-top 100 addresses by UTXO count carry 8.80 million current UTXOs, or
-5.32\% of all UTXOs, but only about 1{,}495 BTC. Balance rank therefore
-shows where stored value is concentrated. UTXO-count rank shows where
-output management is concentrated. Figures~\ref{fig:address-count-rank}--\ref{fig:address-rank-profiles}
-show these address-level splits.
+The top-100 checks separate balance concentration from output-count
+concentration. The top 100 addresses by current BTC balance hold 3.04
+million BTC, or 16.6\% of address-attributable BTC. The top 100 addresses
+by UTXO count carry 8.80 million current UTXOs, or 5.32\% of all UTXOs,
+but only about 1{,}495 BTC. Figure~\ref{fig:address-one-year} panel C
+puts those two top-100 measurements on the same scale. It shows that the
+largest BTC-balance addresses and the largest UTXO-count addresses answer
+different questions: one identifies where current BTC value is parked, and
+the other identifies where many output records are managed.
 
-Figure~\ref{fig:address-one-year} connects the recency partition to the
-frequency partition. Its first panel shows that recent-address count is not
-the same as recent-address BTC. Its other panels show that UTXO frequency
-and balance concentration are separate dimensions. Figure~\ref{fig:address-rank-profiles}
-then reduces the rank result to one comparison: the top balance tail is a
-BTC-value tail, while the top UTXO-count tail is an output-management tail.
-The same address layer can therefore contain stored value, many small output
-records, and recent operational touches without becoming a flat retail
-payment layer.
-
-The count side and the value side answer different questions. Count-heavy
-addresses can arise from repeated receipts, payout machinery, dust,
-consolidation, or other output-management workflows. Balance-heavy addresses
-show where current BTC value is parked. The top-100 result is useful because
-it separates those tails: the largest balance addresses are not simply the
-same objects as the largest UTXO-count addresses. A daily retail payment
-layer would not need that kind of separation; a custody, settlement, and
-output-management layer naturally can.
+The count side and the value side therefore describe different parts of the
+address layer. Count-heavy addresses can arise from repeated receipts,
+payout machinery, dust, consolidation, or other output-management workflows.
+Balance-heavy addresses show where current BTC value is parked. A daily
+retail payment layer would not require this separation; a custody,
+settlement, and output-management layer naturally can.
 
 \begin{figure*}[!tbp]
   \centering
@@ -630,16 +623,10 @@ output-management layer naturally can.
 \begin{figure*}[!tbp]
   \centering
   \includegraphics[width=0.95\textwidth]{figures/fig06_address_one_year.pdf}
-  \caption{A smaller recent-address set holds most BTC, while address count, BTC share, and UTXO frequency point to different layers.}
+  \caption{Address recency, UTXO-count buckets, and top-100 concentration for the current address-attributable set.}
   \label{fig:address-one-year}
 \end{figure*}
 
-\begin{figure*}[!tbp]
-  \centering
-  \includegraphics[width=0.95\textwidth]{figures/fig07_address_rank_profiles.pdf}
-  \caption{Top balance addresses hold BTC value, whereas top UTXO-count addresses concentrate output count but little BTC.}
-  \label{fig:address-rank-profiles}
-\end{figure*}
 
 
 \section{Convergence Across Lenses}\label{sec:convergence}
@@ -722,11 +709,11 @@ not as a daily payment rail first.
 
 \section{Robustness, Validity, and Reproducibility}\label{sec:robustness}
 
-The main robustness choice is to keep every claim tied to its data
-boundary. Stock and sink are exact for the current chainstate snapshot,
-so their uncertainty is interpretive, not sampling-based. The one-year
-flow lens is exact for the one-year window after repair and verification,
-but it is not the full five-year history. Address-level summaries are exact for canonical address strings assigned by the parser, but address strings are not owners. The run logs record the snapshot height, block hash, Bitcoin Core source, repaired flow rows, and sample-verification checks.
+The robustness check is unit separation. Stock and sink use the current
+chainstate snapshot. Flow uses one-year block transaction output sums.
+Address analysis uses canonical address strings assigned by the parser.
+These are different measurements, so the verdict does not depend on one
+single statistic.
 
 There are four threats to validity. First, age is not motive. A five-year
 UTXO can be lost, legally transferred off chain, held in custody, or
@@ -737,7 +724,8 @@ change, batching, vault rotations, and service sweeps. This makes the
 flow lens a base-layer movement-size measure, not a consumer-payment
 classifier. Third, address strings are not wallets. Modern wallets rotate
 addresses, while custodians and services can aggregate many users behind
-one address or script policy. Fourth, the current address analysis is one-year/current-output analysis. The one-year flow window is verified, but a five-year address-flow extension requires the longer archival run.
+one address or script policy. Fourth, the address section uses current-output
+address balances and a one-year recency split.
 
 These limitations do not erase the verdict because the main conclusion is
 not a point label on any single transaction. It is a distributional
@@ -750,7 +738,7 @@ settlement infrastructure than like a daily payment rail.
 
 \section{Verdict}\label{sec:verdict}
 
-The evidence supports a scoped verdict: \btc{}'s base layer now looks more
+The evidence supports a direct verdict: \btc{}'s base layer now looks more
 like store-of-value and settlement infrastructure than like a daily
 payment rail. The stock lens shows that 60.5\% of current BTC is at least
 one year old and 43.0\% is at least three years old. The sink lens shows
@@ -767,14 +755,13 @@ The base chain is still capable of payment, but its observed transaction
 data are better described as an accounting layer for savings, custody,
 large transfers, and operational consolidation.
 
-The next empirical step is straightforward. The longer archival run should reuse the same schema, extend the one-year flow window backward to the full 2021--2026 range, materialize address sent-flow and change-adjusted volume, and then compare the full five-year address flow against the one-year address results here. Until that run completes, this paper is complete for current UTXO stock, current address structure, and one-year address-level analysis; it is intentionally bounded for full-history address flow.
 
 \appendices
 
 \section{Data Sources and Reproducibility}\label{app:data}
 
-The clean reproducibility repository is \url{https://github.com/xodn348/ray.project-reproducibility}.
-Table~\ref{tab:repro-sources} lists the committed sources behind each
+The reproducibility repository is \url{https://github.com/xodn348/ray.project-reproducibility}.
+Table~\ref{tab:repro-sources} lists the source files behind each
 measurement. The rebuild entry point is
 \datafile{scripts/phase2/regen_all.sh}; it regenerates the active figures,
 mirrors them into the root \texttt{figures/} folder, and rebuilds the IEEE
@@ -787,25 +774,21 @@ PDF.
   \renewcommand{\arraystretch}{1.08}
   \begin{tabular}{@{}p{0.16\textwidth}p{0.25\textwidth}p{0.27\textwidth}p{0.22\textwidth}@{}}
     \toprule
-    \textbf{Output} & \textbf{Measurement} & \textbf{Committed source files} & \textbf{Rebuild path} \\
+    \textbf{Output} & \textbf{Measurement} & \textbf{Sources} & \textbf{Rebuild path} \\
     \midrule
     Figure~1 & Macro/protocol timing & \datafile{data/events/timeline.csv}; \datafile{data/events/regulatory_events.csv}; \datafile{data/macro/taproot_adoption_snapshot.csv} & \datafile{scripts/figures/fig01_macro_protocol_timeline.py} \\
     Figures~2 and~4 & Current UTXO stock and sink age & \datafile{data/phase2/utxo_snapshot_20260523/manifest.json}; \datafile{utxo_age_buckets.csv}; \datafile{utxo_cumulative_age.csv} & \datafile{scripts/figures/fig02_stock_lens.py}; \datafile{fig04_sink_lens.py} \\
     Table~I and Figure~3 & One-year block transaction output sums & \datafile{data/phase2/rpc_retained_flow_20260523/manifest.json}; \datafile{rpc_retained_flow_summary.csv}; \datafile{rpc_retained_flow_blocks.csv}; \datafile{rpc_retained_flow_histogram.csv} & \datafile{scripts/figures/fig03_flow_lens.py} \\
     Figures~5 and~6 & Script-family UTXO count, BTC balance, and BTC per UTXO & \datafile{data/phase2/address_core_stage1/coverage_summary.json}; \datafile{script_type_balance.csv} & \datafile{scripts/figures/fig05_address_level.py} \\
-    Table~II and Figures~7--9 & Address recency, UTXO-count buckets, and top-rank tails & \datafile{data/phase2/address_core_stage1/dormancy_balance.csv}; \datafile{utxo_count_distribution.csv}; \datafile{top_balance.csv}; \datafile{top_utxo_count.csv} & \datafile{scripts/figures/fig05_address_level.py}; \datafile{fig06_address_one_year.py}; \datafile{fig07_address_rank_profiles.py} \\
+    Table~II and Figures~7--8 & Address recency, UTXO-count buckets, and top-rank tails & \datafile{data/phase2/address_core_stage1/dormancy_balance.csv}; \datafile{utxo_count_distribution.csv}; \datafile{top_balance.csv}; \datafile{top_utxo_count.csv} & \datafile{scripts/figures/fig05_address_level.py}; \datafile{fig06_address_one_year.py} \\
     Paper PDF & IEEE manuscript and citations & \datafile{paper/paper.tex}; \datafile{paper/references.bib}; \datafile{paper/figures/*.pdf} & \datafile{scripts/phase2/regen_all.sh} \\
     \bottomrule
   \end{tabular}
+  \vspace{1em}
   \caption{Repository sources used to reproduce the paper measurements and figures.}
   \label{tab:repro-sources}
 \end{table*}
 
-Large raw Bitcoin Core files are not committed: the \texttt{dumptxoutset}
-snapshot, raw parsed UTXO rows, and intermediate address shards. The table
-above records the committed summaries used for the 10-page manuscript. The
-one-year address analysis is reported as one-year/current-output evidence,
-not as a full five-year address-flow history.
 
 \bibliographystyle{IEEEtran}
 \bibliography{\paperbibfile}
