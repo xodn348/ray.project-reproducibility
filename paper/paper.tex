@@ -42,22 +42,21 @@ korok@mays.tamu.edu}}
 
 \begin{abstract}
 Did \btc{} shift from medium of exchange to store of value between
-2021 and 2026? This paper answers with transaction data rather
-than exchange prices or survey evidence. A \texttt{dumptxoutset}
-chainstate snapshot at height 950{,}696 contains 165.35 million
-unspent transaction outputs (UTXOs) and 20.03 million BTC. In that
-snapshot, 60.5\% of current BTC has not moved on chain for at least one
-year, 43.0\% for at least three years, and 33.3\% for at least five
-years. A one-year Bitcoin Core block walk over 55{,}891 blocks
-adds the activity view: recent transaction output sums have a small
-retail center but a settlement-sized upper tail. The address-level parse
-maps 18.31 million BTC, or 91.4\% of the snapshot balance, to 56.21
-million canonical addresses; address balances are highly concentrated
-(Gini 0.988), and UTXO frequency reveals a split between ordinary
-single-output addresses and service-like consolidation addresses. In the one-year address analysis, 20.7\% of addresses had at least one current UTXO created within the past year, and those addresses held 82.2\% of address-attributable BTC. The
-verdict is direct: the base layer evidence is more consistent
-with savings, custody, and settlement infrastructure than with a daily
-payment rail.
+2021 and 2026? This paper answers from the transaction layer itself,
+combining current UTXOs, one-year block transactions, and address-level
+balances rather than relying on price data. At height 950{,}696, the
+chainstate snapshot shows that 60.5\% of current BTC has not moved on
+chain for at least one year, and 33.3\% has not moved for at least five
+years. The one-year block walk adds the activity view: most transaction
+output sums are small, but the upper tail remains settlement-sized. The
+address parse maps 18.31 million BTC to 56.21 million addresses and
+shows that balances are concentrated rather than evenly distributed
+across daily-use addresses. In the one-year address check, addresses
+with a recent current UTXO are 20.7\% of addresses but hold 82.2\% of
+address-attributable BTC, while UTXO counts identify a separate
+output-management layer. Across the stock, flow, sink, script-family,
+and address views, the base layer is more consistent with savings,
+custody, and settlement infrastructure than with a daily payment rail.
 \end{abstract}
 
 \begin{IEEEkeywords}
