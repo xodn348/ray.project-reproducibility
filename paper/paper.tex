@@ -760,11 +760,10 @@ large transfers, and operational consolidation.
 \section{Data Sources and Reproducibility}\label{app:data}
 
 The reproducibility repository is \url{https://github.com/xodn348/ray.project-reproducibility}.
-Table~\ref{tab:repro-sources} lists the source files behind each
-measurement. The rebuild entry point is
-\datafile{scripts/phase2/regen_all.sh}; it regenerates the active figures,
-mirrors them into the root \texttt{figures/} folder, and rebuilds the IEEE
-PDF.
+Table~\ref{tab:repro-sources} lists the data tables and scripts used for
+each measurement. The rebuild entry point is
+\datafile{scripts/phase2/regen_all.sh}; it regenerates the figures and
+rebuilds the IEEE PDF.
 
 \begin{table*}[!tbp]
   \centering
@@ -773,7 +772,7 @@ PDF.
   \renewcommand{\arraystretch}{1.08}
   \begin{tabular}{@{}p{0.16\textwidth}p{0.25\textwidth}p{0.27\textwidth}p{0.22\textwidth}@{}}
     \toprule
-    \textbf{Output} & \textbf{Measurement} & \textbf{Sources} & \textbf{Rebuild path} \\
+    \textbf{Output} & \textbf{Measurement} & \textbf{Data} & \textbf{Script} \\
     \midrule
     Figure~1 & Macro/protocol timing & \datafile{data/events/timeline.csv}; \datafile{data/events/regulatory_events.csv}; \datafile{data/macro/taproot_adoption_snapshot.csv} & \datafile{scripts/figures/fig01_macro_protocol_timeline.py} \\
     Figures~2 and~4 & Current UTXO stock and sink age & \datafile{data/phase2/utxo_snapshot_20260523/manifest.json}; \datafile{utxo_age_buckets.csv}; \datafile{utxo_cumulative_age.csv} & \datafile{scripts/figures/fig02_stock_lens.py}; \datafile{fig04_sink_lens.py} \\
@@ -784,7 +783,7 @@ PDF.
     \bottomrule
   \end{tabular}
   \vspace{1em}
-  \caption{Repository sources used to reproduce the paper measurements and figures.}
+  \caption{Data tables and scripts used to reproduce the paper measurements and figures.}
   \label{tab:repro-sources}
 \end{table*}
 
