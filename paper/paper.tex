@@ -265,11 +265,9 @@ and current UTXO count are
   B_a=\sum_{u\in\mathcal{U}_H:a_u=a} b_u,\qquad
   C_a=\sum_{u\in\mathcal{U}_H:a_u=a} 1.
 \end{equation}
-The address balance Gini is computed over the non-negative vector
-$\{B_a:a\in\mathcal{A}\}$, and the UTXO-count Gini is computed over
-$\{C_a:a\in\mathcal{A}\}$. These two quantities answer different
-questions. $B_a$ measures how much BTC value sits at an address. $C_a$
-measures how many current output records sit at that address. Address
+These two address aggregates answer different questions. $B_a$ measures
+how much BTC value sits at an address. $C_a$ measures how many current
+output records sit at that address. Address
 dormancy uses the most recent current UTXO at an address. This is
 intentionally conservative: if a large old address receives one recent
 output, the entire address is classified as more recent, so the
@@ -744,7 +742,9 @@ one year old and 43.0\% is at least three years old. The sink lens shows
 that 33.3\% remains unspent after at least five years. The one-year flow
 lens shows a recent transaction distribution with a small center and a
 large settlement tail. The address lens shows that 18.31 million BTC maps
-to 56.21 million canonical addresses, that 20.7\% of addresses had at least one current UTXO created within the past year and held 82.2\% of address-attributable BTC, and that balance and UTXO-count structure are highly concentrated.
+to 56.21 million canonical addresses, and that 20.7\% of addresses had at
+least one current UTXO created within the past year and held 82.2\% of
+address-attributable BTC.
 
 The claim is deliberately narrower than a market narrative. It does not
 say that every holder is saving, every large transaction is settlement,
