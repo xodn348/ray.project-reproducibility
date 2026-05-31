@@ -13,6 +13,10 @@ DATA_DIR = ROOT / "data" / "phase2" / "address_core_stage1"
 OUT_DIR = ROOT / "paper" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+COUNT_BLUE = "#60a5fa"
+VALUE_BLUE = "#1d4ed8"
+DARK_BLUE = "#1e3a8a"
+
 
 def read_csv(name: str) -> pd.DataFrame:
     path = DATA_DIR / name
@@ -65,14 +69,14 @@ def main() -> int:
         [i - width / 2 for i in x],
         script["utxo_share"],
         width,
-        color="#1d4ed8",
+        color=COUNT_BLUE,
         label="UTXO count share",
     )
     ax.bar(
         [i + width / 2 for i in x],
         script["btc_share"],
         width,
-        color="#dc2626",
+        color=VALUE_BLUE,
         label="BTC balance share",
     )
     ax.set_xticks(x, script["script_type"].astype(str), rotation=25)
@@ -96,7 +100,7 @@ def main() -> int:
     fig, ax = plt.subplots(1, 1, figsize=(8.6, 4.2))
     avg = script.copy()
     avg["btc_per_utxo"] = avg["balance_btc"] / avg["utxo_count"].clip(lower=1)
-    ax.bar(avg["script_type"].astype(str), avg["btc_per_utxo"], color="#0f766e")
+    ax.bar(avg["script_type"].astype(str), avg["btc_per_utxo"], color=VALUE_BLUE)
     ax.set_yscale("log")
     ax.set_title("Average BTC per current UTXO by script family")
     ax.set_ylabel("BTC per current UTXO, log scale")
@@ -116,7 +120,7 @@ def main() -> int:
     ax.bar(
         freq["n_unspent_utxos_bucket"].astype(str),
         freq["address_count"] / 1_000_000.0,
-        color="#7c3aed",
+        color=COUNT_BLUE,
     )
     single = freq.iloc[0]
     ax.text(
@@ -139,7 +143,7 @@ def main() -> int:
     top = top_balance.head(10).copy()
     x = range(1, len(top) + 1)
     ax.plot(
-        list(x), top["current_balance_btc"], marker="o", linewidth=2.0, color="#c2410c"
+        list(x), top["current_balance_btc"], marker="o", linewidth=2.0, color=DARK_BLUE
     )
     top10_btc = top_balance.head(10)["current_balance_btc"].sum()
     top100_btc = top_balance.head(100)["current_balance_btc"].sum()
