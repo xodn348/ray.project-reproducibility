@@ -1,0 +1,25 @@
+{
+  "address_axis": {
+    "address_count": 56210692,
+    "addresses_with_balance": 56210692
+  },
+  "balance_axis": {
+    "address_attributable_btc": 18314690.00031443,
+    "address_attributable_share": 0.91421699,
+    "total_balance_btc": 20033198.02761292,
+    "unaddressed_btc": 1718508.02729849,
+    "utxo_rows": 165350884
+  },
+  "concentration": {
+    "balance_gini": 0.9883658,
+    "gross_volume_gini": 0,
+    "utxo_count_gini": 0.63847373
+  },
+  "core_table_local_only": true,
+  "created_at": "2026-05-28T06:53:54Z",
+  "decision": "D-0009",
+  "external_api_used": false,
+  "flow_axis": {
+    "available": false
+  }
+}

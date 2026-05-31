@@ -1,0 +1,25 @@
+# LaTeX build products
+paper/paper.pdf
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Raw/full-node artifacts intentionally excluded
+.omx/
+data/raw/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.dat
+*.blk
+
+# Generated root figure mirror
+/figures/

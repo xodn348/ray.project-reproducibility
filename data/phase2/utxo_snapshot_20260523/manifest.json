@@ -1,0 +1,21 @@
+{
+  "age_conversion": "age_days = (tip_height - creation_height) / 144; height-based approximation from snapshot creation heights",
+  "block_hash": "000000000000000000013f0e9350bc83c29c7d32d64270e371ea6e2d733e7591",
+  "coinbase_btc": 1766495.93306909,
+  "coinbase_utxos": 232936,
+  "elapsed_seconds": 23.221819584,
+  "expected_utxos_from_dump_header": 165350884,
+  "external_api_used": false,
+  "max_creation_height": 950696,
+  "min_creation_height": 1,
+  "outputs": {
+    "age_buckets_csv": "utxo_age_buckets.csv",
+    "cumulative_age_csv": "utxo_cumulative_age.csv"
+  },
+  "parser": "txoutset crate 0.4.0 over Bitcoin Core dumptxoutset snapshot",
+  "processed_utxos": 165350884,
+  "snapshot_path_local": "/Users/jnnj92/utxo-snapshot-phase2.dat",
+  "source": "Bitcoin Core dumptxoutset RPC snapshot parsed locally; no external API",
+  "tip_height": 950696,
+  "total_btc": 20033198.02761292
+}

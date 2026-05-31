@@ -1,0 +1,92 @@
+{
+  "binning": {
+    "max_log10_btc": 6.0,
+    "min_log10_btc": -8.0,
+    "step": 0.05
+  },
+  "chain": "main",
+  "change_heuristic": "none; no txindex/external clustering/API used",
+  "connections": 0,
+  "created_at": "2026-05-27T04:17:46.719473+00:00",
+  "elapsed_seconds": 4024.322755098343,
+  "end_height": 950696,
+  "external_api_used": false,
+  "networkactive": false,
+  "node_version": "/Satoshi:31.0.0/",
+  "outputs": {
+    "blocks_csv": "data/phase2/rpc_retained_flow_20260523/rpc_retained_flow_blocks.csv",
+    "histogram_csv": "data/phase2/rpc_retained_flow_20260523/rpc_retained_flow_histogram.csv",
+    "summary_csv": "data/phase2/rpc_retained_flow_20260523/rpc_retained_flow_summary.csv"
+  },
+  "processed_blocks": 55891,
+  "pruned": true,
+  "pruneheight": 894806,
+  "repair": {
+    "attempted_skipped_blocks": [
+      895181,
+      901409,
+      902258,
+      903041,
+      905476,
+      909881,
+      910932,
+      911180,
+      935493,
+      937995,
+      941305,
+      941746,
+      942596
+    ],
+    "created_at": "2026-05-27T04:19:51.025401+00:00",
+    "external_api_used": false,
+    "failed": [],
+    "repaired_heights": [
+      895181,
+      901409,
+      902258,
+      903041,
+      905476,
+      909881,
+      910932,
+      911180,
+      935493,
+      937995,
+      941305,
+      941746,
+      942596
+    ],
+    "rpc_call_counts": {
+      "getblock": 26,
+      "getblockhash": 13
+    },
+    "source": "fresh local Bitcoin Core RPC retry for skipped block rows"
+  },
+  "requested_workers": 8,
+  "retained_blocks_available": 55891,
+  "rpc_call_counts": {
+    "getblock": 55891,
+    "getblockchaininfo": 1,
+    "getblockhash": 55891,
+    "getnetworkinfo": 1
+  },
+  "rpc_call_counts_after_repair": {
+    "getblock": 55917,
+    "getblockchaininfo": 1,
+    "getblockhash": 55904,
+    "getnetworkinfo": 1
+  },
+  "rpc_methods": [
+    "getblock",
+    "getblockchaininfo",
+    "getblockhash",
+    "getnetworkinfo"
+  ],
+  "rpc_url": "http://127.0.0.1:18445/",
+  "skipped_blocks": 0,
+  "skipped_blocks_before_repair": 13,
+  "source": "local Bitcoin Core JSON-RPC only",
+  "start_height": 894806,
+  "tip": 950696,
+  "value_unit": "BTC, sum of transaction outputs excluding coinbase",
+  "workers": 8
+}
