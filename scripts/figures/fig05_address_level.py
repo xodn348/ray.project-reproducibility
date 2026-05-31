@@ -14,8 +14,8 @@ OUT_DIR = ROOT / "paper" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 COUNT_BLUE = "#60a5fa"
-VALUE_BLUE = "#1d4ed8"
-DARK_BLUE = "#1e3a8a"
+VALUE_ORANGE = "#ea580c"
+DARK_ORANGE = "#9a3412"
 
 
 def read_csv(name: str) -> pd.DataFrame:
@@ -76,7 +76,7 @@ def main() -> int:
         [i + width / 2 for i in x],
         script["btc_share"],
         width,
-        color=VALUE_BLUE,
+        color=VALUE_ORANGE,
         label="BTC balance share",
     )
     ax.set_xticks(x, script["script_type"].astype(str), rotation=25)
@@ -100,7 +100,7 @@ def main() -> int:
     fig, ax = plt.subplots(1, 1, figsize=(8.6, 4.2))
     avg = script.copy()
     avg["btc_per_utxo"] = avg["balance_btc"] / avg["utxo_count"].clip(lower=1)
-    ax.bar(avg["script_type"].astype(str), avg["btc_per_utxo"], color=VALUE_BLUE)
+    ax.bar(avg["script_type"].astype(str), avg["btc_per_utxo"], color=VALUE_ORANGE)
     ax.set_yscale("log")
     ax.set_title("Average BTC per current UTXO by script family")
     ax.set_ylabel("BTC per current UTXO, log scale")
@@ -143,7 +143,7 @@ def main() -> int:
     top = top_balance.head(10).copy()
     x = range(1, len(top) + 1)
     ax.plot(
-        list(x), top["current_balance_btc"], marker="o", linewidth=2.0, color=DARK_BLUE
+        list(x), top["current_balance_btc"], marker="o", linewidth=2.0, color=DARK_ORANGE
     )
     top10_btc = top_balance.head(10)["current_balance_btc"].sum()
     top100_btc = top_balance.head(100)["current_balance_btc"].sum()

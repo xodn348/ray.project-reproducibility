@@ -15,9 +15,11 @@ OUT_DIR = ROOT / "paper" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 ADDRESS_BLUE = "#60a5fa"
-BTC_BLUE = "#1d4ed8"
+BTC_ORANGE = "#ea580c"
+AUX_GRAY = "#64748b"
 DARK_BLUE = "#1e3a8a"
-SLATE = "#64748b"
+DARK_ORANGE = "#9a3412"
+DARK_GRAY = "#475569"
 
 
 def read_csv(name: str) -> pd.DataFrame:
@@ -113,10 +115,10 @@ def main() -> int:
     x = list(range(len(recency)))
     width = 0.36
     b1 = ax.bar([i - width / 2 for i in x], recency["address_share"] * 100, width, label="Address share", color=ADDRESS_BLUE)
-    b2 = ax.bar([i + width / 2 for i in x], recency["btc_share"] * 100, width, label="BTC share", color=BTC_BLUE)
+    b2 = ax.bar([i + width / 2 for i in x], recency["btc_share"] * 100, width, label="BTC share", color=BTC_ORANGE)
     ax.set_xticks(x, recency["class"].astype(str))
     label_bars(ax, b1, fontsize=10, color=DARK_BLUE)
-    label_bars(ax, b2, fontsize=10, color=DARK_BLUE)
+    label_bars(ax, b2, fontsize=10, color=DARK_ORANGE)
     ax.set_ylim(0, 92)
     ax.set_title("A. Address recency and BTC share", pad=14)
     ax.set_ylabel("Share of address-attributable set (%)")
@@ -127,7 +129,7 @@ def main() -> int:
     x = list(range(len(freq)))
     width = 0.38
     b1 = ax.bar([i - width / 2 for i in x], freq["address_share"] * 100, width, label="Address share", color=ADDRESS_BLUE)
-    b2 = ax.bar([i + width / 2 for i in x], freq["btc_share"] * 100, width, label="BTC share", color=BTC_BLUE)
+    b2 = ax.bar([i + width / 2 for i in x], freq["btc_share"] * 100, width, label="BTC share", color=BTC_ORANGE)
     ax.set_xticks(x, freq["n_unspent_utxos_bucket"].astype(str), rotation=22, ha="right")
     ax.set_title("B. Current UTXOs per address", pad=14)
     ax.set_xlabel("Current UTXOs at address")
@@ -138,11 +140,11 @@ def main() -> int:
     ax = axs[2]
     x = list(range(len(concentration)))
     width = 0.36
-    b1 = ax.bar([i - width / 2 for i in x], concentration["btc_share"] * 100, width, label="BTC share", color=BTC_BLUE)
-    b2 = ax.bar([i + width / 2 for i in x], concentration["utxo_share"] * 100, width, label="UTXO-count share", color=SLATE)
+    b1 = ax.bar([i - width / 2 for i in x], concentration["btc_share"] * 100, width, label="BTC share", color=BTC_ORANGE)
+    b2 = ax.bar([i + width / 2 for i in x], concentration["utxo_share"] * 100, width, label="UTXO-count share", color=AUX_GRAY)
     ax.set_xticks(x, concentration["label"].astype(str))
-    label_bars(ax, b1, fontsize=10, color=DARK_BLUE, min_value=0.5)
-    label_bars(ax, b2, fontsize=10, color=SLATE, min_value=0.5)
+    label_bars(ax, b1, fontsize=10, color=DARK_ORANGE, min_value=0.5)
+    label_bars(ax, b2, fontsize=10, color=DARK_GRAY, min_value=0.5)
     ax.set_ylim(0, max((concentration["btc_share"] * 100).max(), (concentration["utxo_share"] * 100).max()) + 4.5)
     ax.set_title("C. Top-100 balance and UTXO-count shares", pad=14)
     ax.set_ylabel("Share (%)")
