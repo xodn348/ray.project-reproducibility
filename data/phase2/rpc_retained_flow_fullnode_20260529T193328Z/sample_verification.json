@@ -1,0 +1,1858 @@
+{
+  "all_samples_ok": true,
+  "conf": "/Volumes/SSD 2TB/btcCore/bitcoin.conf",
+  "created_at": "2026-05-30T23:47:40.108829+00:00",
+  "csv_files": [
+    "/Users/jnnj92/code/ray.project/data/phase2/rpc_retained_flow_fullnode_20260529T193328Z/rpc_retained_flow_blocks.csv"
+  ],
+  "external_api_used": false,
+  "mismatches": 0,
+  "rows_seen": 266221,
+  "sample_results": [
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2021-05-22",
+        "error": "",
+        "hash": "000000000000000000092eff541d676fe2732f9358643f0c821db9a5fad5c530",
+        "height": "684476",
+        "max_tx_output_btc": "11884.40981433",
+        "month": "2021-05",
+        "n_outputs": "10700",
+        "n_tx_noncoinbase": "2492",
+        "n_tx_total": "2493",
+        "skipped": "0",
+        "time": "1621642381",
+        "total_output_btc": "36651.94166852",
+        "year": "2021"
+      },
+      "height": 684476,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 10702,
+          "total_out": 3665194166852,
+          "txs": 2493
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000092eff541d676fe2732f9358643f0c821db9a5fad5c530",
+        "max_tx_output_btc": 11884.40981433,
+        "n_outputs_noncoinbase": 10700,
+        "n_tx_noncoinbase": 2492,
+        "n_tx_total": 2493,
+        "raw_block_hex_fallback": false,
+        "time": 1621642381,
+        "total_output_btc_noncoinbase": 36651.94166852
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2021-07-04",
+        "error": "",
+        "hash": "000000000000000000006b3606bd6a1a3c88ea11862d53837cc2e4969b1ff05d",
+        "height": "689663",
+        "max_tx_output_btc": "74.87269394",
+        "month": "2021-07",
+        "n_outputs": "6267",
+        "n_tx_noncoinbase": "1872",
+        "n_tx_total": "1873",
+        "skipped": "0",
+        "time": "1625427735",
+        "total_output_btc": "718.56402136",
+        "year": "2021"
+      },
+      "height": 689663,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 6270,
+          "total_out": 71856402136,
+          "txs": 1873
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000006b3606bd6a1a3c88ea11862d53837cc2e4969b1ff05d",
+        "max_tx_output_btc": 74.87269394,
+        "n_outputs_noncoinbase": 6267,
+        "n_tx_noncoinbase": 1872,
+        "n_tx_total": 1873,
+        "raw_block_hex_fallback": false,
+        "time": 1625427735,
+        "total_output_btc_noncoinbase": 718.56402136
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2021-08-02",
+        "error": "",
+        "hash": "0000000000000000000c9d4ebea640f9dd6629aa893c48423010721d34e6f17a",
+        "height": "693889",
+        "max_tx_output_btc": "15953.07288016",
+        "month": "2021-08",
+        "n_outputs": "9144",
+        "n_tx_noncoinbase": "2984",
+        "n_tx_total": "2985",
+        "skipped": "0",
+        "time": "1627928335",
+        "total_output_btc": "22785.03058261",
+        "year": "2021"
+      },
+      "height": 693889,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 9148,
+          "total_out": 2278503058261,
+          "txs": 2985
+        },
+        "getblockstats_error": "",
+        "hash": "0000000000000000000c9d4ebea640f9dd6629aa893c48423010721d34e6f17a",
+        "max_tx_output_btc": 15953.07288016,
+        "n_outputs_noncoinbase": 9144,
+        "n_tx_noncoinbase": 2984,
+        "n_tx_total": 2985,
+        "raw_block_hex_fallback": false,
+        "time": 1627928335,
+        "total_output_btc_noncoinbase": 22785.03058261
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2021-11-24",
+        "error": "",
+        "hash": "000000000000000000062421c899113341567f002bd7f20eaa439a31d29c59b6",
+        "height": "711098",
+        "max_tx_output_btc": "1519.68046032",
+        "month": "2021-11",
+        "n_outputs": "7518",
+        "n_tx_noncoinbase": "2761",
+        "n_tx_total": "2762",
+        "skipped": "0",
+        "time": "1637742854",
+        "total_output_btc": "20382.13981594",
+        "year": "2021"
+      },
+      "height": 711098,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 7522,
+          "total_out": 2038213981594,
+          "txs": 2762
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000062421c899113341567f002bd7f20eaa439a31d29c59b6",
+        "max_tx_output_btc": 1519.68046032,
+        "n_outputs_noncoinbase": 7518,
+        "n_tx_noncoinbase": 2761,
+        "n_tx_total": 2762,
+        "raw_block_hex_fallback": false,
+        "time": 1637742854,
+        "total_output_btc_noncoinbase": 20382.13981594
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2022-01-08",
+        "error": "",
+        "hash": "00000000000000000008c9ef2ff9ea34d56196674339f76f903833bb28e80ec3",
+        "height": "717691",
+        "max_tx_output_btc": "576.63317161",
+        "month": "2022-01",
+        "n_outputs": "12022",
+        "n_tx_noncoinbase": "3037",
+        "n_tx_total": "3038",
+        "skipped": "0",
+        "time": "1641623500",
+        "total_output_btc": "18150.27303797",
+        "year": "2022"
+      },
+      "height": 717691,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 12024,
+          "total_out": 1815027303797,
+          "txs": 3038
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000008c9ef2ff9ea34d56196674339f76f903833bb28e80ec3",
+        "max_tx_output_btc": 576.63317161,
+        "n_outputs_noncoinbase": 12022,
+        "n_tx_noncoinbase": 3037,
+        "n_tx_total": 3038,
+        "raw_block_hex_fallback": false,
+        "time": 1641623500,
+        "total_output_btc_noncoinbase": 18150.27303797
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2022-04-09",
+        "error": "",
+        "hash": "00000000000000000000e9d8bc6d37dc376f887215da82efcd38289a51a5a83f",
+        "height": "731187",
+        "max_tx_output_btc": "259.77232408",
+        "month": "2022-04",
+        "n_outputs": "3373",
+        "n_tx_noncoinbase": "1017",
+        "n_tx_total": "1018",
+        "skipped": "0",
+        "time": "1649547176",
+        "total_output_btc": "1508.08601831",
+        "year": "2022"
+      },
+      "height": 731187,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 3377,
+          "total_out": 150808601831,
+          "txs": 1018
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000000e9d8bc6d37dc376f887215da82efcd38289a51a5a83f",
+        "max_tx_output_btc": 259.77232408,
+        "n_outputs_noncoinbase": 3373,
+        "n_tx_noncoinbase": 1017,
+        "n_tx_total": 1018,
+        "raw_block_hex_fallback": false,
+        "time": 1649547176,
+        "total_output_btc_noncoinbase": 1508.08601831
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2022-04-29",
+        "error": "",
+        "hash": "00000000000000000001ab93c4bf8b0ead482db3071d58b629d8a042795c999a",
+        "height": "734124",
+        "max_tx_output_btc": "804.48001400",
+        "month": "2022-04",
+        "n_outputs": "5842",
+        "n_tx_noncoinbase": "2027",
+        "n_tx_total": "2028",
+        "skipped": "0",
+        "time": "1651251252",
+        "total_output_btc": "4668.42256218",
+        "year": "2022"
+      },
+      "height": 734124,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 5846,
+          "total_out": 466842256218,
+          "txs": 2028
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001ab93c4bf8b0ead482db3071d58b629d8a042795c999a",
+        "max_tx_output_btc": 804.480014,
+        "n_outputs_noncoinbase": 5842,
+        "n_tx_noncoinbase": 2027,
+        "n_tx_total": 2028,
+        "raw_block_hex_fallback": false,
+        "time": 1651251252,
+        "total_output_btc_noncoinbase": 4668.42256218
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2022-06-08",
+        "error": "",
+        "hash": "00000000000000000007ef53f663b04f676272bb8859976dedefde636265ed87",
+        "height": "739793",
+        "max_tx_output_btc": "449.32341527",
+        "month": "2022-06",
+        "n_outputs": "6891",
+        "n_tx_noncoinbase": "2331",
+        "n_tx_total": "2332",
+        "skipped": "0",
+        "time": "1654649005",
+        "total_output_btc": "6866.99393637",
+        "year": "2022"
+      },
+      "height": 739793,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 6895,
+          "total_out": 686699393637,
+          "txs": 2332
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000007ef53f663b04f676272bb8859976dedefde636265ed87",
+        "max_tx_output_btc": 449.32341527,
+        "n_outputs_noncoinbase": 6891,
+        "n_tx_noncoinbase": 2331,
+        "n_tx_total": 2332,
+        "raw_block_hex_fallback": false,
+        "time": 1654649005,
+        "total_output_btc_noncoinbase": 6866.99393637
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2022-07-08",
+        "error": "",
+        "hash": "00000000000000000003895d8c165618c2c5ce1454853299513cf65d9ee0f74a",
+        "height": "744143",
+        "max_tx_output_btc": "8637.19619295",
+        "month": "2022-07",
+        "n_outputs": "4460",
+        "n_tx_noncoinbase": "1541",
+        "n_tx_total": "1542",
+        "skipped": "0",
+        "time": "1657282618",
+        "total_output_btc": "26367.22728920",
+        "year": "2022"
+      },
+      "height": 744143,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 4462,
+          "total_out": 2636722728920,
+          "txs": 1542
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000003895d8c165618c2c5ce1454853299513cf65d9ee0f74a",
+        "max_tx_output_btc": 8637.19619295,
+        "n_outputs_noncoinbase": 4460,
+        "n_tx_noncoinbase": 1541,
+        "n_tx_total": 1542,
+        "raw_block_hex_fallback": false,
+        "time": 1657282618,
+        "total_output_btc_noncoinbase": 26367.2272892
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2022-08-25",
+        "error": "",
+        "hash": "000000000000000000091e373085140901331dc837c6513a3514b8d51803f234",
+        "height": "751031",
+        "max_tx_output_btc": "5115.36687744",
+        "month": "2022-08",
+        "n_outputs": "7034",
+        "n_tx_noncoinbase": "1783",
+        "n_tx_total": "1784",
+        "skipped": "0",
+        "time": "1661419312",
+        "total_output_btc": "23843.89589438",
+        "year": "2022"
+      },
+      "height": 751031,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 7036,
+          "total_out": 2384389589438,
+          "txs": 1784
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000091e373085140901331dc837c6513a3514b8d51803f234",
+        "max_tx_output_btc": 5115.36687744,
+        "n_outputs_noncoinbase": 7034,
+        "n_tx_noncoinbase": 1783,
+        "n_tx_total": 1784,
+        "raw_block_hex_fallback": false,
+        "time": 1661419312,
+        "total_output_btc_noncoinbase": 23843.89589438
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-01-20",
+        "error": "",
+        "hash": "00000000000000000000643cf116bcf95bcdd71f3bfddbd303e13f35b3ed5309",
+        "height": "772789",
+        "max_tx_output_btc": "535.07358790",
+        "month": "2023-01",
+        "n_outputs": "5559",
+        "n_tx_noncoinbase": "1770",
+        "n_tx_total": "1771",
+        "skipped": "0",
+        "time": "1674206655",
+        "total_output_btc": "4532.95350304",
+        "year": "2023"
+      },
+      "height": 772789,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 5562,
+          "total_out": 453295350304,
+          "txs": 1771
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000000643cf116bcf95bcdd71f3bfddbd303e13f35b3ed5309",
+        "max_tx_output_btc": 535.0735879,
+        "n_outputs_noncoinbase": 5559,
+        "n_tx_noncoinbase": 1770,
+        "n_tx_total": 1771,
+        "raw_block_hex_fallback": false,
+        "time": 1674206655,
+        "total_output_btc_noncoinbase": 4532.95350304
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-01-24",
+        "error": "",
+        "hash": "00000000000000000000b3cb22a3370578de6bea01900fd6dafb27b314df4de7",
+        "height": "773416",
+        "max_tx_output_btc": "608.89746123",
+        "month": "2023-01",
+        "n_outputs": "12462",
+        "n_tx_noncoinbase": "3354",
+        "n_tx_total": "3355",
+        "skipped": "0",
+        "time": "1674587297",
+        "total_output_btc": "15539.39012793",
+        "year": "2023"
+      },
+      "height": 773416,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 12464,
+          "total_out": 1553939012793,
+          "txs": 3355
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000000b3cb22a3370578de6bea01900fd6dafb27b314df4de7",
+        "max_tx_output_btc": 608.89746123,
+        "n_outputs_noncoinbase": 12462,
+        "n_tx_noncoinbase": 3354,
+        "n_tx_total": 3355,
+        "raw_block_hex_fallback": false,
+        "time": 1674587297,
+        "total_output_btc_noncoinbase": 15539.39012793
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-02-16",
+        "error": "",
+        "hash": "000000000000000000049c14b22cf7ef6cf660dc0e60c8bbeb996bffe12ff2a8",
+        "height": "776744",
+        "max_tx_output_btc": "631.47494300",
+        "month": "2023-02",
+        "n_outputs": "2899",
+        "n_tx_noncoinbase": "1052",
+        "n_tx_total": "1053",
+        "skipped": "0",
+        "time": "1676508476",
+        "total_output_btc": "3337.12075494",
+        "year": "2023"
+      },
+      "height": 776744,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 2903,
+          "total_out": 333712075494,
+          "txs": 1053
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000049c14b22cf7ef6cf660dc0e60c8bbeb996bffe12ff2a8",
+        "max_tx_output_btc": 631.474943,
+        "n_outputs_noncoinbase": 2899,
+        "n_tx_noncoinbase": 1052,
+        "n_tx_total": 1053,
+        "raw_block_hex_fallback": false,
+        "time": 1676508476,
+        "total_output_btc_noncoinbase": 3337.12075494
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-02-22",
+        "error": "",
+        "hash": "000000000000000000018bfcc06b79c3dd2f47fcda94436348d9e3d02a3a9cb7",
+        "height": "777838",
+        "max_tx_output_btc": "999.90080038",
+        "month": "2023-02",
+        "n_outputs": "8529",
+        "n_tx_noncoinbase": "2717",
+        "n_tx_total": "2718",
+        "skipped": "0",
+        "time": "1677097232",
+        "total_output_btc": "7491.35350516",
+        "year": "2023"
+      },
+      "height": 777838,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 8531,
+          "total_out": 749135350516,
+          "txs": 2718
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000018bfcc06b79c3dd2f47fcda94436348d9e3d02a3a9cb7",
+        "max_tx_output_btc": 999.90080038,
+        "n_outputs_noncoinbase": 8529,
+        "n_tx_noncoinbase": 2717,
+        "n_tx_total": 2718,
+        "raw_block_hex_fallback": false,
+        "time": 1677097232,
+        "total_output_btc_noncoinbase": 7491.35350516
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-03-12",
+        "error": "",
+        "hash": "00000000000000000002fd535e679cd6ec88522804fcdd1d98ec9825cd9ac787",
+        "height": "780511",
+        "max_tx_output_btc": "589.46793584",
+        "month": "2023-03",
+        "n_outputs": "8121",
+        "n_tx_noncoinbase": "2394",
+        "n_tx_total": "2395",
+        "skipped": "0",
+        "time": "1678649391",
+        "total_output_btc": "6288.38166818",
+        "year": "2023"
+      },
+      "height": 780511,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 8123,
+          "total_out": 628838166818,
+          "txs": 2395
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000002fd535e679cd6ec88522804fcdd1d98ec9825cd9ac787",
+        "max_tx_output_btc": 589.46793584,
+        "n_outputs_noncoinbase": 8121,
+        "n_tx_noncoinbase": 2394,
+        "n_tx_total": 2395,
+        "raw_block_hex_fallback": false,
+        "time": 1678649391,
+        "total_output_btc_noncoinbase": 6288.38166818
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-03-31",
+        "error": "",
+        "hash": "000000000000000000031bd5fa3f7ac95a2303ba983967fed8cca88a40499abe",
+        "height": "783286",
+        "max_tx_output_btc": "773.98879651",
+        "month": "2023-03",
+        "n_outputs": "3052",
+        "n_tx_noncoinbase": "260",
+        "n_tx_total": "261",
+        "skipped": "0",
+        "time": "1680238886",
+        "total_output_btc": "1708.59532848",
+        "year": "2023"
+      },
+      "height": 783286,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 3055,
+          "total_out": 170859532848,
+          "txs": 261
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000031bd5fa3f7ac95a2303ba983967fed8cca88a40499abe",
+        "max_tx_output_btc": 773.98879651,
+        "n_outputs_noncoinbase": 3052,
+        "n_tx_noncoinbase": 260,
+        "n_tx_total": 261,
+        "raw_block_hex_fallback": false,
+        "time": 1680238886,
+        "total_output_btc_noncoinbase": 1708.59532848
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-04-13",
+        "error": "",
+        "hash": "000000000000000000001883d3d0cd5f0006fda3ddad41d03916a014f7cb0097",
+        "height": "785236",
+        "max_tx_output_btc": "291.70000000",
+        "month": "2023-04",
+        "n_outputs": "8125",
+        "n_tx_noncoinbase": "2617",
+        "n_tx_total": "2618",
+        "skipped": "0",
+        "time": "1681402872",
+        "total_output_btc": "5248.58173531",
+        "year": "2023"
+      },
+      "height": 785236,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 8129,
+          "total_out": 524858173531,
+          "txs": 2618
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000001883d3d0cd5f0006fda3ddad41d03916a014f7cb0097",
+        "max_tx_output_btc": 291.7,
+        "n_outputs_noncoinbase": 8125,
+        "n_tx_noncoinbase": 2617,
+        "n_tx_total": 2618,
+        "raw_block_hex_fallback": false,
+        "time": 1681402872,
+        "total_output_btc_noncoinbase": 5248.58173531
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-06-20",
+        "error": "",
+        "hash": "00000000000000000000d70c712a2cbeee3fbac6643cfe98b13c277859706976",
+        "height": "795190",
+        "max_tx_output_btc": "712.07658272",
+        "month": "2023-06",
+        "n_outputs": "11355",
+        "n_tx_noncoinbase": "3344",
+        "n_tx_total": "3345",
+        "skipped": "0",
+        "time": "1687268075",
+        "total_output_btc": "9914.16098579",
+        "year": "2023"
+      },
+      "height": 795190,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 11357,
+          "total_out": 991416098579,
+          "txs": 3345
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000000d70c712a2cbeee3fbac6643cfe98b13c277859706976",
+        "max_tx_output_btc": 712.07658272,
+        "n_outputs_noncoinbase": 11355,
+        "n_tx_noncoinbase": 3344,
+        "n_tx_total": 3345,
+        "raw_block_hex_fallback": false,
+        "time": 1687268075,
+        "total_output_btc_noncoinbase": 9914.16098579
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-07-24",
+        "error": "",
+        "hash": "00000000000000000000654d85e92d3f942df1a3946b78c1492dcfc3728e3fa9",
+        "height": "799995",
+        "max_tx_output_btc": "45.85607054",
+        "month": "2023-07",
+        "n_outputs": "7956",
+        "n_tx_noncoinbase": "6387",
+        "n_tx_total": "6388",
+        "skipped": "0",
+        "time": "1690165851",
+        "total_output_btc": "212.67300146",
+        "year": "2023"
+      },
+      "height": 799995,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 7959,
+          "total_out": 21267300146,
+          "txs": 6388
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000000654d85e92d3f942df1a3946b78c1492dcfc3728e3fa9",
+        "max_tx_output_btc": 45.85607054,
+        "n_outputs_noncoinbase": 7956,
+        "n_tx_noncoinbase": 6387,
+        "n_tx_total": 6388,
+        "raw_block_hex_fallback": false,
+        "time": 1690165851,
+        "total_output_btc_noncoinbase": 212.67300146
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-10-11",
+        "error": "",
+        "hash": "000000000000000000021b186b0b2bca4e5056b1993418e2cae1e28d55615d2b",
+        "height": "811659",
+        "max_tx_output_btc": "207.86552109",
+        "month": "2023-10",
+        "n_outputs": "4423",
+        "n_tx_noncoinbase": "1569",
+        "n_tx_total": "1570",
+        "skipped": "0",
+        "time": "1697007143",
+        "total_output_btc": "2664.77010582",
+        "year": "2023"
+      },
+      "height": 811659,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 4428,
+          "total_out": 266477010582,
+          "txs": 1570
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000021b186b0b2bca4e5056b1993418e2cae1e28d55615d2b",
+        "max_tx_output_btc": 207.86552109,
+        "n_outputs_noncoinbase": 4423,
+        "n_tx_noncoinbase": 1569,
+        "n_tx_total": 1570,
+        "raw_block_hex_fallback": false,
+        "time": 1697007143,
+        "total_output_btc_noncoinbase": 2664.77010582
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-10-15",
+        "error": "",
+        "hash": "000000000000000000029a6d9b6cdc34dfbcb90f394f14f8c09037b761dec990",
+        "height": "812291",
+        "max_tx_output_btc": "206.88911911",
+        "month": "2023-10",
+        "n_outputs": "5542",
+        "n_tx_noncoinbase": "2359",
+        "n_tx_total": "2360",
+        "skipped": "0",
+        "time": "1697361580",
+        "total_output_btc": "2073.40470046",
+        "year": "2023"
+      },
+      "height": 812291,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 5544,
+          "total_out": 207340470046,
+          "txs": 2360
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000029a6d9b6cdc34dfbcb90f394f14f8c09037b761dec990",
+        "max_tx_output_btc": 206.88911911,
+        "n_outputs_noncoinbase": 5542,
+        "n_tx_noncoinbase": 2359,
+        "n_tx_total": 2360,
+        "raw_block_hex_fallback": false,
+        "time": 1697361580,
+        "total_output_btc_noncoinbase": 2073.40470046
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2023-11-20",
+        "error": "",
+        "hash": "00000000000000000003074c1424c2fc3c8996a1e503d5ed2254efd8e67c0aa9",
+        "height": "817586",
+        "max_tx_output_btc": "320.88086377",
+        "month": "2023-11",
+        "n_outputs": "10465",
+        "n_tx_noncoinbase": "4130",
+        "n_tx_total": "4131",
+        "skipped": "0",
+        "time": "1700453223",
+        "total_output_btc": "1959.14529974",
+        "year": "2023"
+      },
+      "height": 817586,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 10469,
+          "total_out": 195914529974,
+          "txs": 4131
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000003074c1424c2fc3c8996a1e503d5ed2254efd8e67c0aa9",
+        "max_tx_output_btc": 320.88086377,
+        "n_outputs_noncoinbase": 10465,
+        "n_tx_noncoinbase": 4130,
+        "n_tx_total": 4131,
+        "raw_block_hex_fallback": false,
+        "time": 1700453223,
+        "total_output_btc_noncoinbase": 1959.14529974
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2024-07-09",
+        "error": "",
+        "hash": "000000000000000000013dc83ea195b74f7670b404399f47680ad44e9c0abf00",
+        "height": "851469",
+        "max_tx_output_btc": "2315.50655347",
+        "month": "2024-07",
+        "n_outputs": "7620",
+        "n_tx_noncoinbase": "2472",
+        "n_tx_total": "2473",
+        "skipped": "0",
+        "time": "1720564560",
+        "total_output_btc": "6231.48475693",
+        "year": "2024"
+      },
+      "height": 851469,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 7622,
+          "total_out": 623148475693,
+          "txs": 2473
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000013dc83ea195b74f7670b404399f47680ad44e9c0abf00",
+        "max_tx_output_btc": 2315.50655347,
+        "n_outputs_noncoinbase": 7620,
+        "n_tx_noncoinbase": 2472,
+        "n_tx_total": 2473,
+        "raw_block_hex_fallback": false,
+        "time": 1720564560,
+        "total_output_btc_noncoinbase": 6231.48475693
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2024-07-15",
+        "error": "",
+        "hash": "000000000000000000019de6ef62fc9f56b019e02ed3e27bba830e6a03d53b0a",
+        "height": "852357",
+        "max_tx_output_btc": "1062.52467017",
+        "month": "2024-07",
+        "n_outputs": "11289",
+        "n_tx_noncoinbase": "4290",
+        "n_tx_total": "4291",
+        "skipped": "0",
+        "time": "1721072983",
+        "total_output_btc": "5735.63035268",
+        "year": "2024"
+      },
+      "height": 852357,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 11294,
+          "total_out": 573563035268,
+          "txs": 4291
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000019de6ef62fc9f56b019e02ed3e27bba830e6a03d53b0a",
+        "max_tx_output_btc": 1062.52467017,
+        "n_outputs_noncoinbase": 11289,
+        "n_tx_noncoinbase": 4290,
+        "n_tx_total": 4291,
+        "raw_block_hex_fallback": false,
+        "time": 1721072983,
+        "total_output_btc_noncoinbase": 5735.63035268
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2024-12-02",
+        "error": "",
+        "hash": "00000000000000000001b66af5f1b955f22fffa2ea9a78a1a0a03eb21726000d",
+        "height": "872871",
+        "max_tx_output_btc": "1186.71906404",
+        "month": "2024-12",
+        "n_outputs": "9295",
+        "n_tx_noncoinbase": "3386",
+        "n_tx_total": "3387",
+        "skipped": "0",
+        "time": "1733118192",
+        "total_output_btc": "5544.47300756",
+        "year": "2024"
+      },
+      "height": 872871,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 9299,
+          "total_out": 554447300756,
+          "txs": 3387
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001b66af5f1b955f22fffa2ea9a78a1a0a03eb21726000d",
+        "max_tx_output_btc": 1186.71906404,
+        "n_outputs_noncoinbase": 9295,
+        "n_tx_noncoinbase": 3386,
+        "n_tx_total": 3387,
+        "raw_block_hex_fallback": false,
+        "time": 1733118192,
+        "total_output_btc_noncoinbase": 5544.47300756
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2024-12-12",
+        "error": "",
+        "hash": "0000000000000000000276456bb495aff781dbcf5ef6a30d5142c8fe96d9f7c5",
+        "height": "874330",
+        "max_tx_output_btc": "122.19933605",
+        "month": "2024-12",
+        "n_outputs": "10457",
+        "n_tx_noncoinbase": "4559",
+        "n_tx_total": "4560",
+        "skipped": "0",
+        "time": "1733967368",
+        "total_output_btc": "851.29372114",
+        "year": "2024"
+      },
+      "height": 874330,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 10461,
+          "total_out": 85129372114,
+          "txs": 4560
+        },
+        "getblockstats_error": "",
+        "hash": "0000000000000000000276456bb495aff781dbcf5ef6a30d5142c8fe96d9f7c5",
+        "max_tx_output_btc": 122.19933605,
+        "n_outputs_noncoinbase": 10457,
+        "n_tx_noncoinbase": 4559,
+        "n_tx_total": 4560,
+        "raw_block_hex_fallback": false,
+        "time": 1733967368,
+        "total_output_btc_noncoinbase": 851.29372114
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2024-12-14",
+        "error": "",
+        "hash": "000000000000000000005db97fc0e6a453b83a540cff4b1600960a366d1ef559",
+        "height": "874783",
+        "max_tx_output_btc": "211.81202171",
+        "month": "2024-12",
+        "n_outputs": "13796",
+        "n_tx_noncoinbase": "4576",
+        "n_tx_total": "4577",
+        "skipped": "0",
+        "time": "1734211467",
+        "total_output_btc": "2214.10670032",
+        "year": "2024"
+      },
+      "height": 874783,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 13800,
+          "total_out": 221410670032,
+          "txs": 4577
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000005db97fc0e6a453b83a540cff4b1600960a366d1ef559",
+        "max_tx_output_btc": 211.81202171,
+        "n_outputs_noncoinbase": 13796,
+        "n_tx_noncoinbase": 4576,
+        "n_tx_total": 4577,
+        "raw_block_hex_fallback": false,
+        "time": 1734211467,
+        "total_output_btc_noncoinbase": 2214.10670032
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-02-17",
+        "error": "",
+        "hash": "0000000000000000000108db5f68c85b1ce849a0121024a4413d0466a82ebf64",
+        "height": "884141",
+        "max_tx_output_btc": "57.90845025",
+        "month": "2025-02",
+        "n_outputs": "3573",
+        "n_tx_noncoinbase": "2513",
+        "n_tx_total": "2514",
+        "skipped": "0",
+        "time": "1739767909",
+        "total_output_btc": "300.53335830",
+        "year": "2025"
+      },
+      "height": 884141,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 3578,
+          "total_out": 30053335830,
+          "txs": 2514
+        },
+        "getblockstats_error": "",
+        "hash": "0000000000000000000108db5f68c85b1ce849a0121024a4413d0466a82ebf64",
+        "max_tx_output_btc": 57.90845025,
+        "n_outputs_noncoinbase": 3573,
+        "n_tx_noncoinbase": 2513,
+        "n_tx_total": 2514,
+        "raw_block_hex_fallback": false,
+        "time": 1739767909,
+        "total_output_btc_noncoinbase": 300.5333583
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-03-09",
+        "error": "",
+        "hash": "00000000000000000001edaacc10099e7d4cca222f5f00dd214929c771fc1c9f",
+        "height": "886996",
+        "max_tx_output_btc": "138.21991943",
+        "month": "2025-03",
+        "n_outputs": "3738",
+        "n_tx_noncoinbase": "1473",
+        "n_tx_total": "1474",
+        "skipped": "0",
+        "time": "1741508871",
+        "total_output_btc": "1112.23079523",
+        "year": "2025"
+      },
+      "height": 886996,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 3743,
+          "total_out": 111223079523,
+          "txs": 1474
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001edaacc10099e7d4cca222f5f00dd214929c771fc1c9f",
+        "max_tx_output_btc": 138.21991943,
+        "n_outputs_noncoinbase": 3738,
+        "n_tx_noncoinbase": 1473,
+        "n_tx_total": 1474,
+        "raw_block_hex_fallback": false,
+        "time": 1741508871,
+        "total_output_btc_noncoinbase": 1112.23079523
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-05-07",
+        "error": "",
+        "hash": "00000000000000000001b9301285deef8fe4389a367a5078cdb48aed66700d33",
+        "height": "895661",
+        "max_tx_output_btc": "1311.78536778",
+        "month": "2025-05",
+        "n_outputs": "11226",
+        "n_tx_noncoinbase": "3736",
+        "n_tx_total": "3737",
+        "skipped": "0",
+        "time": "1746627352",
+        "total_output_btc": "9938.29216286",
+        "year": "2025"
+      },
+      "height": 895661,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 11234,
+          "total_out": 993829216286,
+          "txs": 3737
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001b9301285deef8fe4389a367a5078cdb48aed66700d33",
+        "max_tx_output_btc": 1311.78536778,
+        "n_outputs_noncoinbase": 11226,
+        "n_tx_noncoinbase": 3736,
+        "n_tx_total": 3737,
+        "raw_block_hex_fallback": false,
+        "time": 1746627352,
+        "total_output_btc_noncoinbase": 9938.29216286
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-07-09",
+        "error": "",
+        "hash": "00000000000000000001a72dd0bf179182f30c9260cae6ba5ddffcdec47b176a",
+        "height": "904810",
+        "max_tx_output_btc": "168.05774438",
+        "month": "2025-07",
+        "n_outputs": "6433",
+        "n_tx_noncoinbase": "2237",
+        "n_tx_total": "2238",
+        "skipped": "0",
+        "time": "1752096577",
+        "total_output_btc": "2203.64553224",
+        "year": "2025"
+      },
+      "height": 904810,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 6439,
+          "total_out": 220364553224,
+          "txs": 2238
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001a72dd0bf179182f30c9260cae6ba5ddffcdec47b176a",
+        "max_tx_output_btc": 168.05774438,
+        "n_outputs_noncoinbase": 6433,
+        "n_tx_noncoinbase": 2237,
+        "n_tx_total": 2238,
+        "raw_block_hex_fallback": false,
+        "time": 1752096577,
+        "total_output_btc_noncoinbase": 2203.64553224
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-07-17",
+        "error": "",
+        "hash": "000000000000000000002f04e463d7fbfb0a2a1e7f45686cefc3078da45e4b3d",
+        "height": "905980",
+        "max_tx_output_btc": "2167.52659324",
+        "month": "2025-07",
+        "n_outputs": "7779",
+        "n_tx_noncoinbase": "2519",
+        "n_tx_total": "2520",
+        "skipped": "0",
+        "time": "1752771623",
+        "total_output_btc": "11546.42177433",
+        "year": "2025"
+      },
+      "height": 905980,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 7784,
+          "total_out": 1154642177433,
+          "txs": 2520
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000002f04e463d7fbfb0a2a1e7f45686cefc3078da45e4b3d",
+        "max_tx_output_btc": 2167.52659324,
+        "n_outputs_noncoinbase": 7779,
+        "n_tx_noncoinbase": 2519,
+        "n_tx_total": 2520,
+        "raw_block_hex_fallback": false,
+        "time": 1752771623,
+        "total_output_btc_noncoinbase": 11546.42177433
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-09-18",
+        "error": "",
+        "hash": "000000000000000000014ee01d40d83da8f3854e20a1fad4a947a82bed03dfb0",
+        "height": "915239",
+        "max_tx_output_btc": "214.63570487",
+        "month": "2025-09",
+        "n_outputs": "8848",
+        "n_tx_noncoinbase": "3510",
+        "n_tx_total": "3511",
+        "skipped": "0",
+        "time": "1758197123",
+        "total_output_btc": "2318.02884610",
+        "year": "2025"
+      },
+      "height": 915239,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 8855,
+          "total_out": 231802884610,
+          "txs": 3511
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000014ee01d40d83da8f3854e20a1fad4a947a82bed03dfb0",
+        "max_tx_output_btc": 214.63570487,
+        "n_outputs_noncoinbase": 8848,
+        "n_tx_noncoinbase": 3510,
+        "n_tx_total": 3511,
+        "raw_block_hex_fallback": false,
+        "time": 1758197123,
+        "total_output_btc_noncoinbase": 2318.0288461
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-10-16",
+        "error": "",
+        "hash": "00000000000000000001c8b7d706668f114275427c84c85a8e578aacff7dd50f",
+        "height": "919355",
+        "max_tx_output_btc": "1752.87337020",
+        "month": "2025-10",
+        "n_outputs": "9272",
+        "n_tx_noncoinbase": "3150",
+        "n_tx_total": "3151",
+        "skipped": "0",
+        "time": "1760627539",
+        "total_output_btc": "13775.11912630",
+        "year": "2025"
+      },
+      "height": 919355,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 9278,
+          "total_out": 1377511912630,
+          "txs": 3151
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001c8b7d706668f114275427c84c85a8e578aacff7dd50f",
+        "max_tx_output_btc": 1752.8733702,
+        "n_outputs_noncoinbase": 9272,
+        "n_tx_noncoinbase": 3150,
+        "n_tx_total": 3151,
+        "raw_block_hex_fallback": false,
+        "time": 1760627539,
+        "total_output_btc_noncoinbase": 13775.1191263
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-11-12",
+        "error": "",
+        "hash": "00000000000000000000ef429608849034c216f53930209932397443a4f6be80",
+        "height": "923317",
+        "max_tx_output_btc": "4381.41592276",
+        "month": "2025-11",
+        "n_outputs": "3294",
+        "n_tx_noncoinbase": "1369",
+        "n_tx_total": "1370",
+        "skipped": "0",
+        "time": "1762967018",
+        "total_output_btc": "6276.92889039",
+        "year": "2025"
+      },
+      "height": 923317,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 3302,
+          "total_out": 627692889039,
+          "txs": 1370
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000000ef429608849034c216f53930209932397443a4f6be80",
+        "max_tx_output_btc": 4381.41592276,
+        "n_outputs_noncoinbase": 3294,
+        "n_tx_noncoinbase": 1369,
+        "n_tx_total": 1370,
+        "raw_block_hex_fallback": false,
+        "time": 1762967018,
+        "total_output_btc_noncoinbase": 6276.92889039
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-11-15",
+        "error": "",
+        "hash": "00000000000000000001d0bd06a671e429cec5c1c3c2bfa436fcdb7be410de99",
+        "height": "923720",
+        "max_tx_output_btc": "221.79974125",
+        "month": "2025-11",
+        "n_outputs": "572",
+        "n_tx_noncoinbase": "231",
+        "n_tx_total": "232",
+        "skipped": "0",
+        "time": "1763199397",
+        "total_output_btc": "402.76763130",
+        "year": "2025"
+      },
+      "height": 923720,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 578,
+          "total_out": 40276763130,
+          "txs": 232
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001d0bd06a671e429cec5c1c3c2bfa436fcdb7be410de99",
+        "max_tx_output_btc": 221.79974125,
+        "n_outputs_noncoinbase": 572,
+        "n_tx_noncoinbase": 231,
+        "n_tx_total": 232,
+        "raw_block_hex_fallback": false,
+        "time": 1763199397,
+        "total_output_btc_noncoinbase": 402.7676313
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-11-17",
+        "error": "",
+        "hash": "00000000000000000001a110a8f98542bc652cc2c4ef0ac245683de257a22b1d",
+        "height": "924074",
+        "max_tx_output_btc": "87.29951833",
+        "month": "2025-11",
+        "n_outputs": "922",
+        "n_tx_noncoinbase": "470",
+        "n_tx_total": "471",
+        "skipped": "0",
+        "time": "1763418962",
+        "total_output_btc": "342.02097088",
+        "year": "2025"
+      },
+      "height": 924074,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 926,
+          "total_out": 34202097088,
+          "txs": 471
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001a110a8f98542bc652cc2c4ef0ac245683de257a22b1d",
+        "max_tx_output_btc": 87.29951833,
+        "n_outputs_noncoinbase": 922,
+        "n_tx_noncoinbase": 470,
+        "n_tx_total": 471,
+        "raw_block_hex_fallback": false,
+        "time": 1763418962,
+        "total_output_btc_noncoinbase": 342.02097088
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-12-02",
+        "error": "",
+        "hash": "00000000000000000001c99f530c044d58a1a40d5eae66b1216bf700129257f5",
+        "height": "926196",
+        "max_tx_output_btc": "900.89332976",
+        "month": "2025-12",
+        "n_outputs": "6253",
+        "n_tx_noncoinbase": "2569",
+        "n_tx_total": "2570",
+        "skipped": "0",
+        "time": "1764717147",
+        "total_output_btc": "3342.72740215",
+        "year": "2025"
+      },
+      "height": 926196,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 6259,
+          "total_out": 334272740215,
+          "txs": 2570
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001c99f530c044d58a1a40d5eae66b1216bf700129257f5",
+        "max_tx_output_btc": 900.89332976,
+        "n_outputs_noncoinbase": 6253,
+        "n_tx_noncoinbase": 2569,
+        "n_tx_total": 2570,
+        "raw_block_hex_fallback": false,
+        "time": 1764717147,
+        "total_output_btc_noncoinbase": 3342.72740215
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2025-12-18",
+        "error": "",
+        "hash": "00000000000000000001717fafd41fe0077d45dfc789ef1efb8d37599581e0b1",
+        "height": "928344",
+        "max_tx_output_btc": "136.51365975",
+        "month": "2025-12",
+        "n_outputs": "9617",
+        "n_tx_noncoinbase": "3044",
+        "n_tx_total": "3045",
+        "skipped": "0",
+        "time": "1766021172",
+        "total_output_btc": "4414.09569560",
+        "year": "2025"
+      },
+      "height": 928344,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 9623,
+          "total_out": 441409569560,
+          "txs": 3045
+        },
+        "getblockstats_error": "",
+        "hash": "00000000000000000001717fafd41fe0077d45dfc789ef1efb8d37599581e0b1",
+        "max_tx_output_btc": 136.51365975,
+        "n_outputs_noncoinbase": 9617,
+        "n_tx_noncoinbase": 3044,
+        "n_tx_total": 3045,
+        "raw_block_hex_fallback": false,
+        "time": 1766021172,
+        "total_output_btc_noncoinbase": 4414.0956956
+      }
+    },
+    {
+      "checks": {
+        "hash": true,
+        "max_tx_output_btc": true,
+        "n_outputs": true,
+        "n_tx_noncoinbase": true,
+        "n_tx_total": true,
+        "stats_total_out": true,
+        "stats_txs": true,
+        "time": true,
+        "total_output_btc": true
+      },
+      "csv": {
+        "date": "2026-05-23",
+        "error": "",
+        "hash": "000000000000000000013f0e9350bc83c29c7d32d64270e371ea6e2d733e7591",
+        "height": "950696",
+        "max_tx_output_btc": "4098.43144754",
+        "month": "2026-05",
+        "n_outputs": "9486",
+        "n_tx_noncoinbase": "3920",
+        "n_tx_total": "3921",
+        "skipped": "0",
+        "time": "1779557355",
+        "total_output_btc": "5716.97549538",
+        "year": "2026"
+      },
+      "height": 950696,
+      "ok": true,
+      "rpc": {
+        "getblockstats": {
+          "outs": 9493,
+          "total_out": 571697549538,
+          "txs": 3921
+        },
+        "getblockstats_error": "",
+        "hash": "000000000000000000013f0e9350bc83c29c7d32d64270e371ea6e2d733e7591",
+        "max_tx_output_btc": 4098.43144754,
+        "n_outputs_noncoinbase": 9486,
+        "n_tx_noncoinbase": 3920,
+        "n_tx_total": 3921,
+        "raw_block_hex_fallback": false,
+        "time": 1779557355,
+        "total_output_btc_noncoinbase": 5716.97549538
+      }
+    }
+  ],
+  "samples_checked": 40,
+  "samples_requested": 40,
+  "skipped_heights_seen": [],
+  "skipped_rows_seen": 0,
+  "source": "fresh local Bitcoin Core RPC cross-check"
+}

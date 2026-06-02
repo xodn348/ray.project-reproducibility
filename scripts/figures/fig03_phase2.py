@@ -1,5 +1,5 @@
 # pyright: reportCallIssue=false
-"""Retained-block transaction output time-series figure."""
+"""Full-node block transaction output time-series figure."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -10,17 +10,14 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 PHASE2_DIR = ROOT / "data" / "phase2"
-CANDIDATE_DIRS = [
-    PHASE2_DIR / "rpc_retained_flow_20260523",
-    PHASE2_DIR / "rpc_retained_flow",
-]
 OUT_DIR = ROOT / "paper" / "figures"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 
 def _find_rpc_dir() -> Path | None:
-    for d in CANDIDATE_DIRS:
+    fullnode_dirs = sorted(PHASE2_DIR.glob("rpc_retained_flow_fullnode_*"), reverse=True)
+    for d in fullnode_dirs:
         if (d / "manifest.json").exists() and (d / "rpc_retained_flow_summary.csv").exists():
             return d
     return None
@@ -70,13 +67,13 @@ def render_rpc_figure(rpc_dir: Path) -> None:
     ax.legend(loc="upper right", frameon=True, framealpha=0.92)
     fig.autofmt_xdate(rotation=0, ha="center")
 
-    fig.suptitle("Monthly transaction output sums in retained blocks", fontsize=18, y=1.0)
+    fig.suptitle("Monthly transaction output sums in full-node blocks", fontsize=18, y=1.0)
     out_png = OUT_DIR / "fig03_flow_lens_kde.png"
     out_pdf = OUT_DIR / "fig03_flow_lens_kde.pdf"
     fig.savefig(out_png, dpi=150, bbox_inches="tight")
     fig.savefig(out_pdf, bbox_inches="tight")
     plt.close(fig)
-    print(f"[fig03-phase2] rendered retained-block figure from {rpc_dir.relative_to(ROOT)}")
+    print(f"[fig03-phase2] rendered full-node block figure from {rpc_dir.relative_to(ROOT)}")
     print(f"wrote {out_png}")
     print(f"wrote {out_pdf}")
 
@@ -87,7 +84,7 @@ def main() -> int:
         render_rpc_figure(rpc_dir)
         return 0
 
-    raise SystemExit("missing RPC retained-flow artifact; refusing external-data fallback")
+    raise SystemExit("missing full-node RPC flow artifact")
 
 
 if __name__ == "__main__":

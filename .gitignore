@@ -23,3 +23,10 @@ data/raw/
 
 # Generated root figure mirror
 /figures/
+
+# Run logs are excluded from the public reproducibility package
+RUN_LOG.md
+**/RUN_LOG.md
+
+# Optional generated HoloViz review previews
+paper/figures/holoviz/

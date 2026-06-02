@@ -43,12 +43,13 @@ korok@mays.tamu.edu}}
 \begin{abstract}
 Did \btc{} shift from medium of exchange to store of value between
 2021 and 2026? This paper answers from the transaction layer itself,
-combining current UTXOs, one-year block transactions, and address-level
+combining current UTXOs, full-node block transactions, and address-level
 balances rather than relying on price data. At height 950{,}696, the
 chainstate snapshot shows that 60.5\% of current BTC has not moved on
 chain for at least one year, and 33.3\% has not moved for at least five
-years. The one-year block walk adds the activity view: most transaction
-output sums are small, but the upper tail remains settlement-sized. The
+years. The full-node block walk adds the activity view: most transaction
+output sums are small, but the upper tail remains settlement-sized across
+the 2021--2026 window. The
 address parse maps 18.31 million BTC to 56.21 million addresses and
 shows that balances are concentrated rather than evenly distributed
 across daily-use addresses. In the one-year address check, addresses
@@ -73,9 +74,9 @@ serve several economic roles at once. It can be a retail payment rail, a
 settlement system, a custody and treasury layer, a speculative transfer
 network, or a dormant savings ledger. Price data alone cannot identify
 which role dominates on chain. The evidence horizon is therefore explicit:
-the macro/protocol analysis covers 2021--2026, while the chain
-analysis uses live UTXOs, one-year block transactions, and
-one-year/current-output address-level balances derived from Bitcoin
+the macro/protocol and block-flow analysis covers 2021--2026, while the chain
+analysis uses live UTXOs, full-node block transactions, and
+current-output address-level balances derived from Bitcoin
 Core data.
 
 The sample question spans a period with unusually strong economic and
@@ -92,12 +93,12 @@ move, and in the address-level structure of current balances.
 The evidence points toward store-of-value use rather than
 daily-payment use. The chainstate evidence shows storage: much of the
 spendable BTC has not moved for at least one, three, or five years. The
-one-year block evidence shows settlement activity: most transaction
+full-node block evidence shows settlement activity: most transaction
 output sums are small, but the largest transfers remain very large. The
 address analysis shows the same pattern at the address level, with BTC
 balances and UTXO counts concentrated even without wallet or entity
 clustering. The claim is direct: the measured stock,
-flow, sink, and one-year address evidence support the store-of-value
+flow, sink, and address evidence support the store-of-value
 interpretation.
 
 The contribution is not a new deanonymization method. Prior work already
@@ -115,7 +116,7 @@ the data do not identify.
 Bitcoin measurement has two recurring tensions. The first is the tension
 between exact chain data and behavioral interpretation. A full node can
 report whether an output is unspent, when it was created, which script
-family locks it, and which transactions appear in one-year blocks. Those
+family locks it, and which transactions appear in the full-node block window. Those
 facts are exact for the chain view. They do not by themselves say
 whether a person intended to save, trade, pay, consolidate, or rotate a
 vault. Work on address clustering and entity attribution tries to close
@@ -140,7 +141,7 @@ wallets, exchanges, merchants, or lost coins. We ask what conclusions are
 forced by Bitcoin Core data even under conservative interpretation.
 If one lens alone could be explained away by a blind spot, the verdict
 requires the other lenses to point in the same economic direction. A
-large old UTXO stock, a one-year window settlement tail, and concentrated
+large old UTXO stock, a full-node-window settlement tail, and concentrated
 current address balances are not the same statistic. Their agreement is
 therefore more informative than any single number.
 
@@ -200,23 +201,23 @@ before looking at the measurements. A higher-rate environment removed
 much of the easy retail leverage. ETF approval and custody tooling
 created channels for large, slower moving balances. Taproot and MuSig2
 made institutional signing less visible and easier to coordinate. The
-chain evidence below asks whether the actual UTXO set, one-year blocks,
+chain evidence below asks whether the actual UTXO set, full-node blocks,
 and address-level distributions are consistent with that shift.
 
 \section{Data}\label{sec:data}
 
 The measurements use Bitcoin Core chainstate and block data. The stock
 and sink sections use the chainstate snapshot at height 950{,}696. The
-flow section uses a one-year block window, covering heights
-894{,}806--950{,}696, or 2025-05-02 through 2026-05-23. The address
-section uses one-year/current-output address summaries and
-current-balance concentration.
+flow section uses a full-node block window, covering heights
+684{,}476--950{,}696, or 2021-05-02 through 2026-05-23. The address
+section uses current-output address summaries and current-balance
+concentration.
 
 Together these data support three claims: the current BTC stock is old,
-recent base-layer movement has a settlement-sized upper tail, and the
+base-layer movement has a settlement-sized upper tail, and the
 current address layer is concentrated and operationally heterogeneous.
 The macro setting covers 2021--2026; the address-level evidence in this
-paper is one-year/current-output analysis.
+paper is full-node/current-output analysis.
 
 \section{Measurement}\label{sec:design}
 
@@ -246,17 +247,17 @@ bucket; the sink lens reports cumulative shares past fixed age cutoffs:
 \end{equation}
 where $\tau$ is a block-age cutoff.
 
-For the one-year flow window $\mathcal{B}$, let $x_t$ be the non-coinbase
+For the full-node flow window $\mathcal{B}$, let $x_t$ be the non-coinbase
 BTC output sum of transaction $t$. The flow lens estimates monthly
 quantiles
 \begin{equation}
   Q_{m,p}=\inf\left\{q: \frac{1}{|T_m|}\sum_{t\in T_m}
   \mathbf{1}\{x_t\le q\}\ge p\right\},
 \end{equation}
-where $T_m$ is the set of one-year window non-coinbase transactions in
+where $T_m$ is the set of full-node-window non-coinbase transactions in
 month $m$. These are output-sum quantiles before change-output correction.
 They answer how large visible base-layer movements are in the
-one-year window.
+block window.
 
 For address analysis, define the set of canonical addresses
 $\mathcal{A}=\{a_u: a_u\neq \emptyset\}$. For address $a$, current balance
@@ -319,26 +320,26 @@ savings.
 
 For flow, we ask what a base chain transaction looks like when coins
 move. Unlike stock and sink, this lens studies activity rather than the
-full chainstate supply. Its denominator is the one-year block window: all
-non-coinbase transactions in the blocks that the one-year block window
-provided. Bitcoin Core provided those one-year blocks through \texttt{getblockchaininfo}, \texttt{getnetworkinfo},
-\texttt{getblockhash}, and \texttt{getblock}. For each one-year block,
+full chainstate supply. Its denominator is the full-node block window: all
+non-coinbase transactions in the blocks from height 684{,}476 through
+950{,}696. Bitcoin Core provided those blocks through \texttt{getblockchaininfo}, \texttt{getnetworkinfo},
+\texttt{getblockhash}, and \texttt{getblock}. For each block,
 the script drops the coinbase transaction and sums the BTC outputs of
 every other transaction. It then groups transactions by month and records
 the median, p90, and p99 output sums. Figure~\ref{fig:flow-lens} puts
 time on the x axis and transaction output sum on the y axis.
 
-The one-year window covers about 1.06 years of recent block history. The
-result has a retail sized center that gets smaller in BTC terms and a
-settlement sized tail that remains large. The monthly median falls from
-about 0.0019~BTC in May 2025 to about 0.00042~BTC in May 2026, and the
-p90 falls from about 0.27~BTC to about 0.042~BTC. Yet the p99 remains in
-multi-BTC territory, with the whole window's p99 about 18.84~BTC.
-Table~\ref{tab:flow-summary} gives the one-year window values used to
+The full-node window covers about five years of block history. The
+result has a retail-sized center that gets smaller in BTC terms and a
+settlement-sized tail that remains large. The yearly median falls from
+0.0168~BTC in 2021 to 0.000750~BTC in 2026, and the p90 falls from
+1.50~BTC to 0.0944~BTC. Yet the p99 remains in multi-BTC territory,
+with the full window's p99 about 26.61~BTC.
+Table~\ref{tab:flow-summary} gives the full-node window values used to
 interpret Figure~\ref{fig:flow-lens}. In Table~\ref{tab:flow-summary},
-the rows are time slices: the first row is the full one-year window, the
-2025 and 2026 rows split that window by calendar year, and the May rows
-compare the start and end months. The columns report non-coinbase
+the rows are time slices: the first row is the full 2021--2026 block
+window, the middle rows split the window by calendar year, and the final
+row reports the end month. The columns report non-coinbase
 transaction count and output-sum quantiles: median is the typical
 transaction, while p90 and p99 show the upper tail.
 
@@ -351,15 +352,18 @@ transaction, while p90 and p99 show the upper tail.
     \toprule
     \textbf{Slice} & \textbf{Tx M} & \textbf{Med. BTC} & \textbf{p90 BTC} & \textbf{p99 BTC} \\
     \midrule
-    All one-year & 177.0 & 0.00106 & 0.150 & 18.84 \\
-    2025 window & 106.0 & 0.00133 & 0.188 & 18.84 \\
-    2026 window & 71.0 & 0.000750 & 0.0944 & 16.79 \\
-    May 2025 & 11.8 & 0.00188 & 0.266 & 18.84 \\
+    Full window & 718.7 & 0.00266 & 0.422 & 26.61 \\
+    2021 & 55.4 & 0.0168 & 1.50 & 59.57 \\
+    2022 & 93.1 & 0.0188 & 1.68 & 94.41 \\
+    2023 & 153.4 & 0.00266 & 0.422 & 23.71 \\
+    2024 & 192.2 & 0.00119 & 0.106 & 10.59 \\
+    2025 & 153.7 & 0.00150 & 0.211 & 18.84 \\
+    2026 & 71.0 & 0.000750 & 0.0944 & 16.79 \\
     May 2026 & 14.3 & 0.000422 & 0.0422 & 9.44 \\
     \bottomrule
   \end{tabular}
   \vspace{1em}
-  \caption{One-year-window non-coinbase transaction counts and output-sum
+  \caption{Full-node-window non-coinbase transaction counts and output-sum
   quantiles. Tx M is millions of transactions; median, p90, and p99 are BTC
   output-sum quantiles before change-output correction.}
   \label{tab:flow-summary}
@@ -372,12 +376,12 @@ small daily purchases. The blind spot is measurement granularity. A large
 output sum can be a real settlement transfer, a batch payout, a wallet
 sweep, or a vault rotation. Some Ordinals and BRC-20 activity also
 consumes blockspace without being a payment \cite{rodarmor2023ordinals}.
-This one-year window figure is therefore stated in BTC output-sum units.
+This full-node-window figure is therefore stated in BTC output-sum units.
 
 \begin{figure}[!tbp]
   \centering
   \includegraphics[width=0.95\linewidth]{figures/fig03_flow_lens_kde.pdf}
-  \caption{Monthly one-year block transaction output sums in BTC units.}
+  \caption{Monthly full-node block transaction output sums in BTC units.}
   \label{fig:flow-lens}
 \end{figure}
 
@@ -647,7 +651,7 @@ ledger with old coin fragments and recent operational endpoints, not a flat
 set of daily payment balances.
 
 The flow lens and the UTXO-count address lens connect transaction size to
-operational structure. Flow says the one-year transaction distribution has a
+operational structure. Flow says the full-node transaction distribution has a
 small center but a large p99 tail. Address frequency says the same chainstate
 contains a many-output tail: addresses with more than ten current UTXOs are
 about 2.3\% of addresses but hold 31.2\% of address-attributable BTC, while
@@ -707,7 +711,7 @@ not as a daily payment rail first.
 \section{Robustness and Validity}\label{sec:robustness}
 
 The robustness check is unit separation. Stock and sink use the current
-chainstate snapshot. Flow uses one-year block transaction output sums.
+chainstate snapshot. Flow uses full-node block transaction output sums.
 Address analysis uses canonical address strings assigned by the parser.
 These are different measurements, so the verdict does not depend on one
 single statistic.
@@ -722,7 +726,8 @@ flow lens a base-layer movement-size measure, not a consumer-payment
 classifier. Third, address strings are not wallets. Modern wallets rotate
 addresses, while custodians and services can aggregate many users behind
 one address or script policy. Fourth, the address section uses current-output
-address balances and a one-year recency split.
+address balances and an address-recency split based on the newest current
+UTXO at each address.
 
 These limitations do not erase the verdict because the main conclusion is
 not a point label on any single transaction. It is a distributional
@@ -739,8 +744,8 @@ The evidence supports a direct verdict: \btc{}'s base layer now looks more
 like store-of-value and settlement infrastructure than like a daily
 payment rail. The stock lens shows that 60.5\% of current BTC is at least
 one year old and 43.0\% is at least three years old. The sink lens shows
-that 33.3\% remains unspent after at least five years. The one-year flow
-lens shows a recent transaction distribution with a small center and a
+that 33.3\% remains unspent after at least five years. The full-node flow
+lens shows a 2021--2026 transaction distribution with a small center and a
 large settlement tail. The address lens shows that 18.31 million BTC maps
 to 56.21 million canonical addresses, and that 20.7\% of addresses had at
 least one current UTXO created within the past year and held 82.2\% of
@@ -760,8 +765,11 @@ large transfers, and operational consolidation.
 \section{Data Sources and Reproducibility}\label{app:data}
 
 The reproducibility repository is \url{https://github.com/xodn348/ray.project-reproducibility}.
-Table~\ref{tab:repro-sources} lists the data tables and scripts used for
-each measurement. The rebuild entry point is
+Table~\ref{tab:repro-sources} lists the source tables and scripts used for
+each figure, table, and manuscript build. The full-node flow artifact is
+\datafile{data/phase2/rpc_retained_flow_fullnode_20260529T193328Z};
+the address summaries are rebuilt from
+\datafile{data/phase2/address_core_stage1}. The rebuild entry point is
 \datafile{scripts/phase2/regen_all.sh}; it regenerates the figures and
 rebuilds the IEEE PDF.
 
@@ -775,10 +783,10 @@ rebuilds the IEEE PDF.
     \textbf{Output} & \textbf{Measurement} & \textbf{Data} & \textbf{Script} \\
     \midrule
     Figure~1 & Macro/protocol timing & \datafile{data/events/timeline.csv}; \datafile{data/events/regulatory_events.csv}; \datafile{data/macro/taproot_adoption_snapshot.csv} & \datafile{scripts/figures/fig01_macro_protocol_timeline.py} \\
-    Figures~2 and~4 & Current UTXO stock and sink age & \datafile{data/phase2/utxo_snapshot_20260523/manifest.json}; \datafile{utxo_age_buckets.csv}; \datafile{utxo_cumulative_age.csv} & \datafile{scripts/figures/fig02_stock_lens.py}; \datafile{fig04_sink_lens.py} \\
-    Table~I and Figure~3 & One-year block transaction output sums & \datafile{data/phase2/rpc_retained_flow_20260523/manifest.json}; \datafile{rpc_retained_flow_summary.csv}; \datafile{rpc_retained_flow_blocks.csv}; \datafile{rpc_retained_flow_histogram.csv} & \datafile{scripts/figures/fig03_flow_lens.py} \\
+    Figures~2 and~4 & Current UTXO stock and sink age & \datafile{data/phase2/utxo_snapshot_20260523/manifest.json}; \datafile{utxo_age_buckets.csv}; \datafile{utxo_cumulative_age.csv} & \datafile{scripts/figures/fig02_phase2.py}; \datafile{fig04_phase2.py} \\
+    Table~I and Figure~3 & Full-node block transaction output sums & \datafile{data/phase2/rpc_retained_flow_fullnode_20260529T193328Z/manifest.json}; \datafile{rpc_retained_flow_summary.csv}; \datafile{rpc_retained_flow_blocks.csv}; \datafile{rpc_retained_flow_histogram.csv} & \datafile{scripts/figures/fig03_phase2.py} \\
     Figures~5 and~6 & Script-family UTXO count, BTC balance, and BTC per UTXO & \datafile{data/phase2/address_core_stage1/coverage_summary.json}; \datafile{script_type_balance.csv} & \datafile{scripts/figures/fig05_address_level.py} \\
-    Table~II and Figures~7--8 & Address recency, UTXO-count buckets, and top-rank tails & \datafile{data/phase2/address_core_stage1/dormancy_balance.csv}; \datafile{utxo_count_distribution.csv}; \datafile{top_balance.csv}; \datafile{top_utxo_count.csv} & \datafile{scripts/figures/fig05_address_level.py}; \datafile{fig06_address_one_year.py} \\
+    Table~II and Figures~7--8 & Address recency, UTXO-count buckets, and top-rank tails & \datafile{data/phase2/address_core_stage1/dormancy_balance.csv}; \datafile{utxo_count_distribution.csv}; \datafile{top_balance.csv}; \datafile{top_utxo_count.csv}; \datafile{coverage_summary.json} & \datafile{scripts/figures/fig05_address_level.py}; \datafile{fig06_address_one_year.py} \\
     Paper PDF & IEEE manuscript and citations & \datafile{paper/paper.tex}; \datafile{paper/references.bib}; \datafile{paper/figures/*.pdf} & \datafile{scripts/phase2/regen_all.sh} \\
     \bottomrule
   \end{tabular}

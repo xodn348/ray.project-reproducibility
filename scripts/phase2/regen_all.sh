@@ -5,9 +5,10 @@
 #
 # Steps:
 #   1. regenerate all active in-body figures, with Phase 2 wrappers for Fig 2--4
-#   2. Mirror paper/figures into root figures/ for Overleaf folder uploads
-#   3. pdflatex x2           — rebuild paper/paper.pdf (twice for cross-refs)
-#   4. summary               — page count, figure count, warning count
+#   2. regenerate HoloViz/Bokeh review diagrams for Fig 2--4
+#   3. Mirror paper/figures into root figures/ for Overleaf folder uploads
+#   4. pdflatex x2           — rebuild paper/paper.pdf (twice for cross-refs)
+#   5. summary               — page count, figure count, warning count
 
 set -u
 
@@ -17,7 +18,7 @@ cd "$ROOT"
 
 echo "[regen] root: $ROOT"
 
-echo "[regen] step 1: regenerate the active figures"
+echo "[regen] step 1: regenerate active manuscript figures"
 mkdir -p "$ROOT/paper/figures" "$ROOT/figures"
 find "$ROOT/paper/figures" -maxdepth 1 -type f \( -name '*.pdf' -o -name '*.png' \) -delete
 find "$ROOT/figures" -maxdepth 1 -type f \( -name '*.pdf' -o -name '*.png' \) -delete
@@ -36,7 +37,17 @@ do
     }
 done
 
-echo "[regen] step 2: mirror active paper/figures into root figures/ for Overleaf"
+echo "[regen] step 2: regenerate HoloViz/Bokeh review diagrams"
+python "scripts/figures/fig_holoviz_previews.py" || {
+    echo "[regen] ERROR: scripts/figures/fig_holoviz_previews.py failed"
+    exit 1
+}
+python "scripts/figures/export_holoviz_png_previews.py" || {
+    echo "[regen] ERROR: scripts/figures/export_holoviz_png_previews.py failed"
+    exit 1
+}
+
+echo "[regen] step 3: mirror active paper/figures into root figures/ for Overleaf"
 for ext in pdf png; do
     for stem in \
         fig01_macro_protocol_timeline \
@@ -54,12 +65,8 @@ for ext in pdf png; do
     done
 done
 
-echo "[regen] step 3: compile paper.pdf (pdflatex + bibtex + pdflatex x2)"
+echo "[regen] step 4: compile paper.pdf (pdflatex + bibtex + pdflatex x2)"
 cd "$ROOT/paper"
-# Class/style changes can leave stale aux commands (for example elsarticle
-# frontmatter macros) that break the next IEEEtran build, so clean generated
-# TeX state before the first pass.
-rm -f paper.aux paper.bbl paper.blg paper.out paper.toc paper.spl paper.synctex.gz
 LOG_FILE="$(mktemp)"
 pdflatex -interaction=nonstopmode paper.tex > "$LOG_FILE" 2>&1 || {
     echo "[regen] ERROR: first pdflatex pass failed; tail of log:"
@@ -78,7 +85,7 @@ pdflatex -interaction=nonstopmode paper.tex > "$LOG_FILE" 2>&1 || {
     exit 1
 }
 
-echo "[regen] step 4: summary"
+echo "[regen] step 5: summary"
 if command -v pdfinfo >/dev/null 2>&1; then
     PAGES=$(pdfinfo paper.pdf | awk '/^Pages:/ {print $2}')
 else
@@ -89,6 +96,7 @@ FIG_COUNT=$(grep -c "\\\\includegraphics" paper.tex)
 WARN_COUNT=$(grep -cE "(LaTeX Warning|Overfull|Underfull)" "$LOG_FILE" || true)
 echo "[regen]   pages   : $PAGES"
 echo "[regen]   figures : $FIG_COUNT (\\includegraphics count)"
+echo "[regen]   holoviz : $(find "$ROOT/paper/figures/holoviz" -type f \( -name '*.html' -o -name '*.png' \) | wc -l | tr -d ' ') preview files"
 echo "[regen]   warnings: $WARN_COUNT (LaTeX/Overfull/Underfull)"
 echo "[regen] done"
 rm -f "$LOG_FILE" "$LOG_FILE.bib"

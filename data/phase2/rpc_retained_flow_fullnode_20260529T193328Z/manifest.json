@@ -1,0 +1,66 @@
+{
+  "binning": {
+    "max_log10_btc": 6.0,
+    "min_log10_btc": -8.0,
+    "step": 0.05
+  },
+  "block_fetch_mode": "raw",
+  "chain": "main",
+  "change_heuristic": "none; no txindex/external clustering/API used",
+  "connections": 10,
+  "created_at": "2026-05-29T20:19:54.481238+00:00",
+  "elapsed_seconds": 2774.1054899692535,
+  "end_height": 950696,
+  "external_api_used": false,
+  "max_skipped_blocks": 10,
+  "max_skipped_exceeded": false,
+  "networkactive": true,
+  "node_version": "/Satoshi:31.0.0/",
+  "outputs": {
+    "blocks_csv": "data/phase2/rpc_retained_flow_fullnode_20260529T193328Z/rpc_retained_flow_blocks.csv",
+    "histogram_csv": "data/phase2/rpc_retained_flow_fullnode_20260529T193328Z/rpc_retained_flow_histogram.csv",
+    "summary_csv": "data/phase2/rpc_retained_flow_fullnode_20260529T193328Z/rpc_retained_flow_summary.csv"
+  },
+  "processed_blocks": 266221,
+  "pruned": false,
+  "pruneheight": 0,
+  "repair": {
+    "allowed_failed_heights": [],
+    "attempted_skipped_blocks": [],
+    "created_at": "2026-05-30T23:47:24.732478+00:00",
+    "external_api_used": false,
+    "failed": [],
+    "repaired_heights": [],
+    "rpc_call_counts": {},
+    "source": "fresh local Bitcoin Core RPC retry for skipped block rows"
+  },
+  "requested_workers": 4,
+  "retained_blocks_available": 951603,
+  "rpc_batch_size": 4,
+  "rpc_call_counts": {
+    "getblock": 266221,
+    "getblockchaininfo": 1,
+    "getblockhash": 266221,
+    "getnetworkinfo": 1
+  },
+  "rpc_call_counts_after_repair": {
+    "getblock": 266221,
+    "getblockchaininfo": 1,
+    "getblockhash": 266221,
+    "getnetworkinfo": 1
+  },
+  "rpc_methods": [
+    "getblock",
+    "getblockchaininfo",
+    "getblockhash",
+    "getnetworkinfo"
+  ],
+  "rpc_url": "http://127.0.0.1:8332/",
+  "skipped_blocks": 0,
+  "skipped_blocks_before_repair": 0,
+  "source": "local Bitcoin Core JSON-RPC only",
+  "start_height": 684476,
+  "tip": 951602,
+  "value_unit": "BTC, sum of transaction outputs excluding coinbase",
+  "workers": 4
+}

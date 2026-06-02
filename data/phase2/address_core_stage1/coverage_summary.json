@@ -15,9 +15,7 @@
     "gross_volume_gini": 0,
     "utxo_count_gini": 0.63847373
   },
-  "core_table_local_only": true,
   "created_at": "2026-05-28T06:53:54Z",
-  "decision": "D-0009",
   "external_api_used": false,
   "flow_axis": {
     "available": false
