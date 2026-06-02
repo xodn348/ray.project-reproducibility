@@ -7,7 +7,7 @@
 #   1. regenerate all active in-body figures, with Phase 2 wrappers for Fig 2--4
 #   2. regenerate HoloViz/Bokeh review diagrams for Fig 2--4
 #   3. Mirror paper/figures into root figures/ for Overleaf folder uploads
-#   4. pdflatex x2           — rebuild paper/paper.pdf (twice for cross-refs)
+#   4. pdflatex x3           — rebuild paper/paper.pdf with stable cross-refs
 #   5. summary               — page count, figure count, warning count
 
 set -u
@@ -65,7 +65,7 @@ for ext in pdf png; do
     done
 done
 
-echo "[regen] step 4: compile paper.pdf (pdflatex + bibtex + pdflatex x2)"
+echo "[regen] step 4: compile paper.pdf (pdflatex + bibtex + pdflatex x3)"
 cd "$ROOT/paper"
 LOG_FILE="$(mktemp)"
 pdflatex -interaction=nonstopmode paper.tex > "$LOG_FILE" 2>&1 || {
@@ -81,6 +81,11 @@ pdflatex -interaction=nonstopmode paper.tex > "$LOG_FILE" 2>&1 || {
 }
 pdflatex -interaction=nonstopmode paper.tex > "$LOG_FILE" 2>&1 || {
     echo "[regen] ERROR: third pdflatex pass failed; tail of log:"
+    tail -40 "$LOG_FILE"
+    exit 1
+}
+pdflatex -interaction=nonstopmode paper.tex > "$LOG_FILE" 2>&1 || {
+    echo "[regen] ERROR: fourth pdflatex pass failed; tail of log:"
     tail -40 "$LOG_FILE"
     exit 1
 }
