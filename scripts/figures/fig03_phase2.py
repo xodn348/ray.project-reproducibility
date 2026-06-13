@@ -33,21 +33,22 @@ def render_rpc_figure(rpc_dir: Path) -> None:
         "font.family": "DejaVu Sans",
         "axes.spines.top": False,
         "axes.spines.right": False,
+        "axes.axisbelow": True,
         "axes.titlesize": 18,
         "axes.labelsize": 15,
         "xtick.labelsize": 13,
         "ytick.labelsize": 13,
-        "legend.fontsize": 12,
+        "legend.fontsize": 13,
     })
 
     fig, ax = plt.subplots(figsize=(14.2, 6.6))
     x = month_summary["month"]
-    ax.plot(x, month_summary["median_btc_approx"], marker="o", linewidth=2.6,
-            color="#2563eb", label="median")
-    ax.plot(x, month_summary["p90_btc_approx"], marker="s", linewidth=2.6,
-            color="#059669", label="p90")
-    ax.plot(x, month_summary["p99_btc_approx"], marker="^", linewidth=2.8,
-            color="#7c2d12", label="p99")
+    ax.plot(x, month_summary["median_btc_approx"], marker="o", markersize=5,
+            markevery=3, linewidth=2.2, color="#2563eb", label="median")
+    ax.plot(x, month_summary["p90_btc_approx"], marker="s", markersize=5,
+            markevery=3, linewidth=2.2, color="#059669", label="p90")
+    ax.plot(x, month_summary["p99_btc_approx"], marker="^", markersize=5.5,
+            markevery=3, linewidth=2.4, color="#7c2d12", label="p99")
     ax.fill_between(
         x,
         month_summary["median_btc_approx"],
@@ -58,13 +59,19 @@ def render_rpc_figure(rpc_dir: Path) -> None:
     )
 
     ax.set_yscale("log")
-    ax.set_ylim(2e-4, 60)
+    ax.set_ylim(float(month_summary["median_btc_approx"].min()) * 0.55,
+                float(month_summary["p99_btc_approx"].max()) * 1.8)
     ax.set_xlabel("Month")
     ax.set_ylabel("Transaction output sum, BTC")
-    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=6))
+    ax.xaxis.set_minor_locator(mdates.MonthLocator(interval=1))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
+    ax.tick_params(axis="x", which="minor", length=2.5)
+    ax.set_yticks([1e-3, 1e-2, 1e-1, 1, 10])
+    ax.set_yticklabels(["0.001", "0.01", "0.1", "1", "10"])
     ax.grid(True, axis="both", which="major", linestyle=":", linewidth=0.7, alpha=0.48)
-    ax.legend(loc="upper right", frameon=True, framealpha=0.92)
+    ax.legend(loc="lower left", ncol=3, frameon=True, framealpha=0.95,
+              edgecolor="#cbd5e1", borderpad=0.7, columnspacing=1.6)
     fig.autofmt_xdate(rotation=0, ha="center")
 
     fig.suptitle("Monthly transaction output sums in full-node blocks", fontsize=18, y=1.0)

@@ -10,8 +10,9 @@ import pandas as pd
 from matplotlib.axes import Axes
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT_DIR = ROOT / "paper" / "figures"
-OUT_DIR.mkdir(parents=True, exist_ok=True)
+OUT_DIRS = [ROOT / "paper" / "figures", ROOT / "figures"]
+for out_dir in OUT_DIRS:
+    out_dir.mkdir(parents=True, exist_ok=True)
 
 START = pd.Timestamp("2021-05-22")
 END = pd.Timestamp("2026-05-23")
@@ -33,6 +34,7 @@ MACRO_EVENTS = [
     ("2024-04-19", "4th\nhalving", 28, 0.22),
     ("2024-07-05", "Mt.Gox\ndistributions", 46, 0.80),
     ("2024-09-18", "First Fed\ncut", 24, 0.22),
+    ("2025-07-17", "CLARITY Act\nHouse passage", 0, 0.80),
 ]
 
 PROTOCOL_EVENTS = [
@@ -155,10 +157,11 @@ def main() -> None:
     fig.text(0.525, 0.815, "Macro, regulatory, and custody forcing events", ha="center", va="center", fontsize=18)
     fig.text(0.525, 0.475, "Protocol and blockspace events", ha="center", va="center", fontsize=18)
 
-    for ext in ("png", "pdf"):
-        out = OUT_DIR / f"fig01_macro_protocol_timeline.{ext}"
-        fig.savefig(out, dpi=170 if ext == "png" else None, bbox_inches="tight")
-        print(f"wrote {out}")
+    for out_dir in OUT_DIRS:
+        for ext in ("png", "pdf"):
+            out = out_dir / f"fig01_macro_protocol_timeline.{ext}"
+            fig.savefig(out, dpi=170 if ext == "png" else None, bbox_inches="tight")
+            print(f"wrote {out}")
     plt.close(fig)
 
 

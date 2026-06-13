@@ -54,16 +54,16 @@ def main() -> int:
     dormancy = read_csv("dormancy_balance.csv")
     dormancy["address_count"] = pd.to_numeric(dormancy["address_count"])
     dormancy["balance_btc"] = pd.to_numeric(dormancy["balance_btc"])
-    recent_mask = dormancy["dormancy_class"].isin(["active", "recent"])
+    recent_mask = dormancy["dormancy_class"].isin(["active", "recent", "dormant_1y", "dormant_3y"])
     recency = pd.DataFrame(
         [
             {
-                "class": "Newest UTXO\n<1 year",
+                "class": "Newest UTXO\n<5 years",
                 "addresses": dormancy.loc[recent_mask, "address_count"].sum(),
                 "btc": dormancy.loc[recent_mask, "balance_btc"].sum(),
             },
             {
-                "class": "Newest UTXO\n≥1 year",
+                "class": "Newest UTXO\n≥5 years",
                 "addresses": dormancy.loc[~recent_mask, "address_count"].sum(),
                 "btc": dormancy.loc[~recent_mask, "balance_btc"].sum(),
             },
@@ -103,6 +103,7 @@ def main() -> int:
             "font.family": "DejaVu Sans",
             "axes.spines.top": False,
             "axes.spines.right": False,
+            "axes.axisbelow": True,
             "axes.titlesize": 15,
             "axes.labelsize": 12,
             "xtick.labelsize": 11,
@@ -119,10 +120,10 @@ def main() -> int:
     ax.set_xticks(x, recency["class"].astype(str))
     label_bars(ax, b1, fontsize=10, color=DARK_BLUE)
     label_bars(ax, b2, fontsize=10, color=DARK_ORANGE)
-    ax.set_ylim(0, 92)
+    ax.set_ylim(0, 100)
     ax.set_title("A. Address recency and BTC share", pad=14)
     ax.set_ylabel("Share of address-attributable set (%)")
-    ax.legend(frameon=False, fontsize=10, loc="upper center", ncol=2)
+    ax.legend(frameon=False, fontsize=10, loc="upper right")
     ax.grid(True, axis="y", linestyle=":", alpha=0.45)
 
     ax = axs[1]
@@ -138,11 +139,14 @@ def main() -> int:
     ax.grid(True, axis="y", linestyle=":", alpha=0.45)
 
     ax = axs[2]
-    x = list(range(len(concentration)))
+    # One bar per top-100 list, centered on its tick: the BTC-balance list is
+    # read on the BTC-share axis and the UTXO-count list on the UTXO-share axis,
+    # matching the two measurements quoted in the text.
     width = 0.36
-    b1 = ax.bar([i - width / 2 for i in x], concentration["btc_share"] * 100, width, label="BTC share", color=BTC_ORANGE)
-    b2 = ax.bar([i + width / 2 for i in x], concentration["utxo_share"] * 100, width, label="UTXO-count share", color=AUX_GRAY)
-    ax.set_xticks(x, concentration["label"].astype(str))
+    b1 = ax.bar([0], concentration.loc[0, "btc_share"] * 100, width, label="BTC share", color=BTC_ORANGE)
+    b2 = ax.bar([1], concentration.loc[1, "utxo_share"] * 100, width, label="UTXO-count share", color=AUX_GRAY)
+    ax.set_xticks([0, 1], concentration["label"].astype(str))
+    ax.set_xlim(-0.7, 1.7)
     label_bars(ax, b1, fontsize=10, color=DARK_ORANGE, min_value=0.5)
     label_bars(ax, b2, fontsize=10, color=DARK_GRAY, min_value=0.5)
     ax.set_ylim(0, max((concentration["btc_share"] * 100).max(), (concentration["utxo_share"] * 100).max()) + 4.5)

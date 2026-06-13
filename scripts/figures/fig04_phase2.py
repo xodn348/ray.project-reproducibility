@@ -19,12 +19,13 @@ def main() -> int:
     df = pd.read_csv(DATA)
     df["share_pct"] = pd.to_numeric(df["share_of_total_btc"], errors="coerce").astype(float) * 100.0
     df["total_btc_m"] = pd.to_numeric(df["total_btc"], errors="coerce").astype(float) / 1_000_000.0
-    labels = df["threshold"].astype(str).str.replace(">=", ">=", regex=False).tolist()
+    labels = df["threshold"].astype(str).str.replace(">=", "≥", regex=False).tolist()
 
     plt.rcParams.update({
         "font.family": "DejaVu Sans",
         "axes.spines.top": False,
         "axes.spines.right": False,
+        "axes.axisbelow": True,
         "axes.titlesize": 18,
         "axes.labelsize": 15,
         "xtick.labelsize": 13,
@@ -37,7 +38,7 @@ def main() -> int:
     ax.set_xlabel("Minimum UTXO age threshold")
     ax.set_ylim(0, 105)
     ax.grid(True, axis="y", linestyle=":", linewidth=0.7, alpha=0.55)
-    ax.tick_params(axis="x", rotation=25)
+    plt.setp(ax.get_xticklabels(), rotation=15, ha="right")
     for i, row in df.iterrows():
         ax.text(i, float(row["share_pct"]) + 2.0, f"{float(row['share_pct']):.1f}%", ha="center", fontsize=11)
     fig.suptitle("Current BTC unspent past age thresholds", fontsize=18, y=0.99)

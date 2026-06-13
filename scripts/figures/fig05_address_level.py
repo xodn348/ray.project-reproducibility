@@ -56,37 +56,56 @@ def main() -> int:
             "font.family": "DejaVu Sans",
             "axes.spines.top": False,
             "axes.spines.right": False,
-            "axes.titlesize": 12,
-            "axes.labelsize": 10,
-            "xtick.labelsize": 9,
-            "ytick.labelsize": 9,
+            "axes.axisbelow": True,
+            "axes.titlesize": 13,
+            "axes.labelsize": 11,
+            "xtick.labelsize": 10,
+            "ytick.labelsize": 10,
         }
     )
+
+    def label_bars(ax, bars, fmt, color, dy, fontsize=9, min_value=0.0):
+        for bar in bars:
+            if bar.get_height() < min_value:
+                continue
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                bar.get_height() + dy,
+                fmt(bar.get_height()),
+                ha="center",
+                va="bottom",
+                fontsize=fontsize,
+                color=color,
+            )
+
     fig, ax = plt.subplots(1, 1, figsize=(8.6, 4.2))
     x = list(range(len(script)))
     width = 0.36
-    ax.bar(
+    b1 = ax.bar(
         [i - width / 2 for i in x],
         script["utxo_share"],
         width,
         color=COUNT_BLUE,
         label="UTXO count share",
     )
-    ax.bar(
+    b2 = ax.bar(
         [i + width / 2 for i in x],
         script["btc_share"],
         width,
         color=VALUE_ORANGE,
         label="BTC balance share",
     )
-    ax.set_xticks(x, script["script_type"].astype(str), rotation=25)
-    ax.set_title("Script families: UTXO count vs BTC balance")
+    ax.set_xticks(x, script["script_type"].astype(str))
+    label_bars(ax, b1, lambda h: f"{h:.1f}", "#1e40af", dy=0.6, min_value=0.05)
+    label_bars(ax, b2, lambda h: f"{h:.1f}", DARK_ORANGE, dy=0.6, min_value=0.05)
+    ax.set_title("Script families: UTXO count vs BTC balance", pad=10)
     ax.set_ylabel("Share of current UTXO set (%)")
+    ax.set_ylim(0, 47)
     ax.legend(
         frameon=True,
         facecolor="white",
         edgecolor="#cbd5e1",
-        fontsize=8,
+        fontsize=10,
         loc="upper right",
     )
     ax.grid(True, axis="y", linestyle=":", alpha=0.45)
@@ -100,13 +119,15 @@ def main() -> int:
     fig, ax = plt.subplots(1, 1, figsize=(8.6, 4.2))
     avg = script.copy()
     avg["btc_per_utxo"] = avg["balance_btc"] / avg["utxo_count"].clip(lower=1)
-    ax.bar(avg["script_type"].astype(str), avg["btc_per_utxo"], color=VALUE_ORANGE)
+    bars = ax.bar(avg["script_type"].astype(str), avg["btc_per_utxo"], color=VALUE_ORANGE)
     ax.set_yscale("log")
-    ax.set_title("Average BTC per current UTXO by script family")
+    label_bars(ax, bars, lambda h: f"{h:.2f}" if h >= 0.01 else f"{h:.4f}",
+               DARK_ORANGE, dy=0.0)
+    ax.set_title("Average BTC per current UTXO by script family", pad=10)
     ax.set_ylabel("BTC per current UTXO, log scale")
     ax.set_xlabel("Script family")
-    ax.tick_params(axis="x", rotation=25)
-    ax.grid(True, which="both", axis="y", linestyle=":", alpha=0.45)
+    ax.set_ylim(top=ax.get_ylim()[1] * 2.2)
+    ax.grid(True, which="major", axis="y", linestyle=":", alpha=0.45)
     fig.tight_layout()
     for ext in ("png", "pdf"):
         out = OUT_DIR / f"fig06_script_value_per_utxo.{ext}"
@@ -117,11 +138,13 @@ def main() -> int:
     fig, axs = plt.subplots(1, 2, figsize=(12.8, 4.4))
 
     ax = axs[0]
-    ax.bar(
+    bars = ax.bar(
         freq["n_unspent_utxos_bucket"].astype(str),
         freq["address_count"] / 1_000_000.0,
         color=COUNT_BLUE,
     )
+    label_bars(ax, bars, lambda h: f"{h:.1f}M" if h >= 1 else f"{h:.2f}M",
+               "#1e40af", dy=0.5)
     single = freq.iloc[0]
     ax.text(
         0.98,
@@ -162,7 +185,10 @@ def main() -> int:
     ax.set_title("B. Top balances dwarf ordinary address balances")
     ax.set_ylabel("BTC, log scale")
     ax.set_xlabel("Rank")
-    ax.grid(True, which="both", axis="y", linestyle=":", alpha=0.45)
+    ax.set_xticks(list(x))
+    ax.set_yticks([6e4, 1e5, 1.5e5, 2e5, 2.5e5])
+    ax.set_yticklabels(["60k", "100k", "150k", "200k", "250k"])
+    ax.grid(True, which="major", axis="y", linestyle=":", alpha=0.45)
 
     fig.tight_layout()
     for ext in ("png", "pdf"):

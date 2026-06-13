@@ -23,6 +23,7 @@ mkdir -p "$ROOT/paper/figures" "$ROOT/figures"
 find "$ROOT/paper/figures" -maxdepth 1 -type f \( -name '*.pdf' -o -name '*.png' \) -delete
 find "$ROOT/figures" -maxdepth 1 -type f \( -name '*.pdf' -o -name '*.png' \) -delete
 for f in \
+    fig00_dataset_scale.py \
     fig01_macro_protocol_timeline.py \
     fig02_phase2.py \
     fig03_phase2.py \
@@ -50,6 +51,7 @@ python "scripts/figures/export_holoviz_png_previews.py" || {
 echo "[regen] step 3: mirror active paper/figures into root figures/ for Overleaf"
 for ext in pdf png; do
     for stem in \
+        fig00_dataset_scale \
         fig01_macro_protocol_timeline \
         fig02_stock_lens \
         fig03_flow_lens_kde \

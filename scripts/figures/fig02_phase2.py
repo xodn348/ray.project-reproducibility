@@ -25,6 +25,7 @@ def main() -> int:
         "font.family": "DejaVu Sans",
         "axes.spines.top": False,
         "axes.spines.right": False,
+        "axes.axisbelow": True,
         "axes.titlesize": 18,
         "axes.labelsize": 15,
         "xtick.labelsize": 13,
@@ -37,13 +38,13 @@ def main() -> int:
     ax.set_xlabel("Age since creating transaction, height-based approximation")
     ax.set_ylim(0, max(36, float(df["share_pct"].max()) * 1.18))
     ax.grid(True, axis="y", linestyle=":", linewidth=0.7, alpha=0.55)
-    ax.tick_params(axis="x", rotation=28)
+    plt.setp(ax.get_xticklabels(), rotation=20, ha="right")
     for bar, btc_m in zip(bars, df["total_btc_m"], strict=False):
         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.7,
                 f"{bar.get_height():.1f}%\n{btc_m:.2f}M", ha="center", va="bottom", fontsize=11)
     one_plus = df.loc[df["bucket"].isin(["1-2 years", "2-3 years", "3-5 years", ">5 years"]), "share_pct"].sum()
     three_plus = df.loc[df["bucket"].isin(["3-5 years", ">5 years"]), "share_pct"].sum()
-    ax.text(0.02, 0.96, f"Local dumptxoutset snapshot, height 950,696\n>=1y: {one_plus:.1f}% of BTC; >=3y: {three_plus:.1f}%",
+    ax.text(0.02, 0.96, f"Local dumptxoutset snapshot, height 950,696\n≥1y: {one_plus:.1f}% of BTC; ≥3y: {three_plus:.1f}%",
             transform=ax.transAxes, ha="left", va="top", fontsize=13,
             bbox=dict(boxstyle="round,pad=0.35", fc="white", ec="#64748b", alpha=0.94))
     fig.suptitle("UTXO snapshot age distribution", fontsize=18, y=0.99)

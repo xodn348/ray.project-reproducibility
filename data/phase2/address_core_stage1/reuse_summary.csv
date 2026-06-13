@@ -1,2 +1,3 @@
-reuse_class,address_count,balance_btc,gross_volume_btc
-single_use,56210692,18314690.00031443,0.00000000
+reuse_class,address_count,balance_btc,received_btc
+single_use,669736601,9383516.98002530,791200312.93827295
+reused,37362977,10536983.49503688,2150088910.17465639
